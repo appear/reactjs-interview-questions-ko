@@ -3,6 +3,8 @@
 원작자인 [sudheerj](https://github.com/sudheerj) 의 동의를 구하고 진행하는 번역본 입니다 :)   
 영어 원본: https://github.com/sudheerj/reactjs-interview-questions#what-is-reactjs
 
+처음 해보는 번역이라 어색한 문맥이 많습니다 :) ..  
+
 -------------------------------------------------------------------
 | No. | Questions |
 |---- | ---------
