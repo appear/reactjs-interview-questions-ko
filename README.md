@@ -32,7 +32,8 @@
 
 ## Core ReactJS
 
-1. ### What is ReactJS? (React란 무엇인가요?)
+1. ### What is ReactJS? 
+### (React란 무엇인가요?)
 [React](https://reactjs.org/docs/hello-world.html)는 SPA (Single Page Application) 즉, 단일 페이지 응용 프로그램에서 사용자 인터페이스를 구성는데 사용되는 오픈 소스 프론트엔드 JS 라이브러리 입니다.   
 웹 및 모바일 앱의 Layer 를 다루는데 사용됩니다. 리액트는 페이스북의 소프트웨어 엔지니어 [Jordan Walke](https://twitter.com/jordwalke) 에 의해 만들어졌습니다.  
 리액트는 2011 년 페이스북 뉴스피드에 발표되었고, 2012년 인스타그램에 처음 구축되었습니다.
@@ -317,7 +318,7 @@ const todoItems = todos.map((todo) =>
   </li>
 );
 ```
-
+What is ReactJS? (React란 무엇인가요?)
 렌더링 된 목록에 안정적인 ID가 없을 경우 마지막 수단으로 index 값을 이용할 수 있습니다.
 
 ```js
