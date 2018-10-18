@@ -105,8 +105,8 @@ function Button ({ onLogin }) {
 }
 ```
 
-### 5. How to create components in ReactJS? 
-#### (React에서 컴포넌트를 어떻게 생성하나요?)
+5. ### How to create components in ReactJS? 
+#### (React에서 컴포넌트를 어떻게 생성하나요?)   
 ReactJS 는 Components 생성하는 두 가지 방법이 있습니다.
 
 1. **Functional components**
@@ -130,17 +130,17 @@ class Greeting extends React.Component {
 }
 ```
 
-### 6. When to use a Class Component over a Functional Component? 
+6. ### When to use a Class Component over a Functional Component? 
 #### (언제 클래스 컴포넌트를 사용하고 언제 Functional 컴포넌트를 사용할까요?)
 Component 에서 state 또는 [life cycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) 를 필요로 한다면 Class component를 사용하고 그렇지 않다면 Functional component를 사용할 수 있습니다.
 
-### 7. What are Pure Components? 
+7. ### What are Pure Components? 
 ####(순수 컴포넌트란 무엇인가요?)
 [PureComponent](http://lucybain.com/blog/2018/react-js-pure-component)는 동일한 상태에서는 동일한 결과를 반환합니다. [shouldComponentUpdate](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) 메서드를 다룰 수 있다는 점을 제외하고는 component와 동일합니다.   
 props 또는 state 가 변경될 때 PureComponent 는 state 와 props 에 대해 [Shallow Compare](https://reactjs.org/docs/shallow-compare.html)을 수행합니다.  
 반면 component는 현재 props와 변형될 state를 비교하지 않습니다. 그렇기 때문에 component는 shouldComponentUpdate가 호출 될 때 마다 다시 render 됩니다. (shouldComponentUpdate의 기본값은 true 이기 때문에)
 
-### 8. What is state in ReactJS? 
+8. ### What is state in ReactJS? 
 #### (state란 무엇인가요?)
 Component [State](https://reactjs.org/docs/faq-state.html) 는 component의 life cycle 동안 변경될 수 있는 정보를 담고 있는 객체입니다. 우리는 state를 가능한 단순하게 만들고 state 의 구성 요소의 수를 최소화하기 위해 노력해야 합니다.
 
@@ -167,7 +167,7 @@ class User extends React.Component {
 
 ![state](./public/state.jpg)
 
-### 9. What is props in ReactJS ? 
+9. ### What is props in ReactJS ? 
 #### (props란 무엇인가요?)
 [Props](https://reactjs.org/docs/components-and-props.html) 는 HTML 태그 속성과 유사한 규칙을 사용하여 React component 에 전달되는 값을 포함하는 단일 값 또는 객체입니다. 부모 component 에서 자식 component 로 전달되는 데이터 입니다.
 
@@ -189,12 +189,12 @@ React에서 props 의 목적은 아래와 같은 기능을 component에 제공�
 props.reactProp;
 ```
 
-### 10. What is the difference between state and props ? 
+10. ### What is the difference between state and props ? 
 #### (state와 props의 차이점은 무엇인가요?)
 props와 state는 모두 JavaScript 객체입니다. 두가지 다 렌더링 결과에 영향을 주는 정보를 가지고 있지만, component 와 관련된 기능면에서 차이가 있습니다.  
 props는 함수 매개변수와 같이 component 요소로 전달됩니다. state 는 component 안에서 관리되고 사용할 변수 선언과 비슷합니다.
 
-### 11. Why should not we update the state directly? 
+11. ### Why should not we update the state directly? 
 #### (state를 직접 업데이트 하면 안되는 이유는 무엇인가요?)
 state를 직접 업데이트 하려고 한다면 component 는 re-render 되지 않습니다.
 
@@ -212,7 +212,7 @@ this.setState({message: ‘Hello World’});
 
 Note: 상태를 할당할 수 있는 곳은 constructor 가 유일합니다. (외부에서 다이렉트로 state를 할당하지 말라는 뜻 같습니다.)
 
-### 12. What is the purpose of callback function as an argument of setState? 
+12. ### What is the purpose of callback function as an argument of setState? 
 #### (setState에서 callback의 역할은 무엇인가요?)
 callback 함수는 setState가 끝난 후 그리고 component 가 re-rendering 된 후 호출됩니다. setState는 비동기적으로 동작합니다. callback 함수는 모든 작업이 마무리된 후 사용됩니다. 
 
@@ -222,7 +222,7 @@ setState({name: 'sudheer'}, () => console.log('The name has updated and componen
  
 #### Note: callback 함수를 이용하는 것보단 lifecycle 메서드를 이용하는 것이 좋습니다.
 
-### 13. What is the difference of event handling between HTML and React? 
+13. ### What is the difference of event handling between HTML and React? 
 #### (HTML과 React의 이벤트 처리 차이점은 무엇인가요?)
 아래는 HTML과 React 의 이벤트처리의 몇 가지 차이점입니다.
 
@@ -253,7 +253,7 @@ function handleClick(e) {
 }
 ```
 
-### 14. How to bind methods or event handlers in JSX callbacks? (Or) How to use this keyword in JSX callbacks? 
+14. ### How to bind methods or event handlers in JSX callbacks? (Or) How to use this keyword in JSX callbacks? 
 #### (This를 바인딩하는 방법은 어떤 것들이 있나요?)
 3가지의 방법이 있습니다.
 
@@ -292,7 +292,7 @@ handleClick = () => {
 
 Note: 만약 callback 이 하위 component 에 props 로 전달되면 component는 re-rendering 될 수 있습니다. 이럴 경우 성능을 고려하였을때 1번 또는 2번의 방식을 사용하는 것이 좋습니다.
 
-### 15. How to pass a parameter to an event handler or callback? 
+15. ### How to pass a parameter to an event handler or callback? 
 #### (이벤트 핸들러 또는 콜백에 매개변수를 어떻게 전달하나요?)
 arrow function 으로 감싸서 event handler 에게 매개변수를 전달할 수 있습니다.
 
@@ -306,11 +306,11 @@ arrow function 으로 감싸서 event handler 에게 매개변수를 전달할 �
 <button onClick={this.handleClick.bind(this, id)} />
 ```
  
-### 16. What are synthetic events in ReactJS? 
+16. ### What are synthetic events in ReactJS? 
 #### (React에서의 합성 이벤트는 무엇인가요?)
 [synthetic event](https://reactjs.org/docs/events.html) 는 브라우저의 기본 이벤트를 감싼 cross-browser wrapper 입니다. API는 모든 브라우저에서 동작한다는 점을 제외하면, stopPropagation () 및 preventDefault () 를 포함해 브라우저 네이티브 이벤트와 같은 인터페이스를 가지고 있습니다.
 
-### 17. What is inline conditional expressions? 
+17. ### What is inline conditional expressions? 
 #### (인라인 조건식은 무엇인가요?)
 조건부 표현식을 표현하기 위해 if 문 또는 삼항 연산자를 사용할 수 있습니다. 이런 표현법 외에도 중괄호로 묶은 다음 JS의 논리 연산자 (&&) 를 붙여 JSX 표현식에 포함시킬 수 있습니다.
 
@@ -322,7 +322,7 @@ arrow function 으로 감싸서 event handler 에게 매개변수를 전달할 �
 </h2>
 ```
 
-### 18. What is Key and benefit of using it in lists? 
+18. ### What is Key and benefit of using it in lists? 
 #### (list 에서 key를 사용했을 때의 이점은 무엇인가요?)
 ["Key"](https://reactjs.org/docs/lists-and-keys.html)는 목록을 만들때 포함시켜야하는 특수한 속성입니다. "Key"는 목록의 변경사항, 추가 또는 제거된 항목을 분별할 수 있도록 도와줍니다.  
 
@@ -352,13 +352,13 @@ Note:
 
 list 에 key 가 없으면 콘솔에 경고가 표시됩니다.
 
-### 19. What is the use of create refs? 
+19. ### What is the use of create refs? 
 #### (ref의 용도는 무엇인가요?)
 두 가지의 접근법이 있습니다.
 
 최근에 추가된 접근 방식입니다. [create ref](https://reactjs.org/docs/refs-and-the-dom.html)는 element 요소에 대한 참조를 반환하는데 사용할 수 있습니다. DOM의 요소나 compoennt 에 직접 접근해야 될 경우 유용할 수 있습니다.
 
-### 20. How to create refs? 
+20. ### How to create refs? 
 #### (create refs를 어떻게 만드나요?) 
 Ref는 React.createRef() 메서드를 사용하여 생성합니다. ref attribute 을 통해 React elements 에 첨부됩니다. component 전체에서 사용하고 싶다면 constructor에서 instance property 로 ref를 할당하면 됩니다.
 
