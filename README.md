@@ -496,13 +496,16 @@ class MyComponent extends Component {
 #### [(가상돔은 어떻게 동작하나요?)](https://www.youtube.com/watch?v=BYbgopx44vo)
 가상돔은 세 가지의 간단한 단계로 동작합니다.
 
-1. 데이터가 변경될 때 전체 UI 는 가상돔안에서 re-rendered 됩니다.
+1. 데이터가 변경될 때 전체 UI 는 가상돔안에서 re-rendered 됩니다.   
+
 ![vdom](./public/vdom1.png)
 
-2. 그런 다음 변경되기전 DOM 과 새로운 변경된 DOM 의 변경점을 계산합니다.
+2. 그런 다음 변경되기전 DOM 과 새로운 변경된 DOM 의 변경점을 계산합니다.   
+
 ![vdom](./public/vdom2.png)
 
-3. 계산이 완료되면 실제 DOM 에서 계산된 변경점들만 업데이트됩니다.
+3. 계산이 완료되면 실제 DOM 에서 계산된 변경점들만 업데이트됩니다.     
+
 ![vdom](./public/vdom3.png)
 
 26. ### What is the difference between Shadow DOM and Virtual DOM?
