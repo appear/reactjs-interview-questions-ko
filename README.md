@@ -565,3 +565,22 @@ class UserProfile extends React.Component {
 ```
   
 대부분의 경우 forms 을 제어할 때는 controlled component 를 사용하는 것을 추천합니다.
+
+31. ### What is the difference between createElement and cloneElement?
+#### (createElement와 cloneElement의 차이점은 무엇인가요?)
+UI 의 object representation으로 사용될 react element를 만들기 위해 JSX element 는 React.createElement() 함수로 변환됩니다. cloneElement는 element 를 복사하고 새로운 props 를 전달하는데 사용됩니다.
+
+32. ### What is Lifting State Up in React?
+#### (React 에서 Lifting State Up 은 무엇인가요?)
+여러 component 들이 동일한 변경 데이터를 공유해야하는 경우 가까운 부모 component 로 state를 올리는 것이 좋습니다. 즉, 두개의 자식 component가 부모의 있는 동일한 데이터를 공유할 때 두개의 자식 component 들은 부모로 state를 올리는 대신 local state를 유지해야합니다.
+
+33. ### What are the different phases of component lifecycle?
+#### (component 라이프사이클 단계는 무엇이 다른가요?)
+라이프 사이클에는 4가지 단계가 있습니다.
+
+1. Initialization: component 는 초기 state 및 props 를 세팅을 준비합니다.
+2. Mounting: component 가 브라우저 DOM에 mount 될 준비가 되었습니다. 이 단계에서는 componentWillMount, componentDidMount 를 사용할 수 있습니다.
+3. Updating: 새로운 props를 보내거나 state를 업데이트하여 component 를 두가지 방법으로 update 할 수 있습니다. 이 단계에서는 shouldComponentUpdate (), componentWillUpdate () 및 componentDidUpdate 를 사용할 수 있습니다.
+4. Unmounting: 브라우저 DOM에서 component 가 필요하지 않을때 mount를 해제시킵니다. 이 단계에서는 componentWillUnmount 를 사용할 수 있습니다.
+
+![lifecycle](./public/phases.png)
