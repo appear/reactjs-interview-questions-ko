@@ -587,3 +587,12 @@ UI 의 object representation으로 사용될 react element를 만들기 위해 J
 4. Unmounting: 브라우저 DOM에서 component 가 필요하지 않을때 mount를 해제시킵니다. 이 단계에서는 componentWillUnmount 를 사용할 수 있습니다.
 
 ![lifecycle](./public/phases.png)
+
+34. ### What are the lifecycle methods of React?
+#### (React의 lifecycle methods는 무엇인가요?)
+- componentWillMount: rendering 전에 실행됩니다.
+- componentDidMount: 첫 rendering 후에 실행됩니다. 이 단계에서 모든 AJAX 요청, DOM 또는 State의 update, event listener 가 설정되어야합니다.
+- componentWillReceiveProps: 특정 props update가 state 변화를 트리거할 때 실행됩니다.
+- 
+
+- 
