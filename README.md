@@ -587,3 +587,5 @@ UI 의 object representation으로 사용될 react element를 만들기 위해 J
 4. Unmounting: 브라우저 DOM에서 component 가 필요하지 않을때 mount를 해제시킵니다. 이 단계에서는 componentWillUnmount 를 사용할 수 있습니다.
 
 ![lifecycle](./public/phases.png)
+
+
