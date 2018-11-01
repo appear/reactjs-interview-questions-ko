@@ -49,6 +49,22 @@
 |38 | [What is children prop?](#what-is-children-prop)|
 |39 | [How to write comments in ReactJS?](#how-to-write-comments-in-reactjs)|
 |40 | [What is the purpose of using super constructor with props argument?](#what-is-the-purpose-of-using-super-constructor-with-props-argument)|
+|41 | [What is reconciliation?](#what-is-reconciliation) |
+|42 | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name) |
+|43 | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
+|44 | [Why is it necessary to capitalize component names?](#why-is-it-necessary-to-capitalize-component-names) |
+|45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
+|46 | [What are fragments?](#what-are-fragments) |
+|47 | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs) |
+|48 | [What are portals in React?](#what-are-portals-in-react) |
+|49 | [What are stateless components?](#what-are-stateless-components) |
+|50 | [What are stateful components?](#what-are-stateful-components) |
+|51 | [How to apply validation on props in React?](#how-to-apply-validation-on-props-in-react) |
+|52 | [What are the advantages of React?](#what-are-the-advantages-of-react) |
+|53 | [What are the limitations of React?](#what-are-the-limitations-of-react) |
+|54 | [What are error boundaries in React v16](#what-are-error-boundaries-in-react-v16) |
+|55 | [How error boundaries handled in React v15?](#how-error-boundaries-handled-in-react-v15) |
+|56 | [What are the recommended ways for static type checking?](#what-are-the-recommended-ways-for-static-type-checking) |
 
 ## Core ReactJS
 
@@ -830,5 +846,156 @@ ReactDOM.createPortal(child, container)
 ```
 
 첫 번째 인자는 렌더링 가능한 React 하위요소 (element, string, fragment) 입니다. 두 번째 인자는 DOM element 입니다.
+
+49. ### What are stateless components?
+#### (stateless 컴포넌트는 무엇인가요?)
+Component의 동작과 상태가 독립적이라면 stateless component 를 구성할 수 있습니다. stateless component 는 class나 function 을 이용하여 만들 수 있습니다. 
+lifecycle hook을 사용해야하는 경우가 아니라면 function component를 사용할 수 있습니다. function component를 사용한다면 많은 이점이 있습니다. 
+쓰기, 이해 그리고 테스트가 빠르고 쉽습니다. 
+
+50. ### What are stateful components?
+#### (stateful components 는 무엇인가요?)
+Component 의 동작이 component의 state에 의존한다면 stateful component라고 부를 수 있습니다. stateful component 는 항상 class components 이고, constructor에서 초기화합니다. 
+
+```js
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
+
+  render() {
+    // ...
+  }
+}
+```
+
+51. ### How to apply validation on props in React?
+#### (React에서 Props의 유효성검사를 적용하나요 ?)
+Application 이 개발 모드에서 실행될 때 React는 자동으로 component에 설정된 모든 props 들의 유효성을 체크합니다. 타입이 올바르지 않다면 React는 console에 경고 메세지를 생성할 것 입니다. 
+성능에 영향이 가기 때문에 production 모드에서는 사용하지 않습니다. 필수 props는 isRequired로 정의됩니다.
+
+정의 된 props 타입
+
+- PropTypes.number
+- PropTypes.string
+- PropTypes.array
+- PropTypes.object
+- PropTypes.func
+- PropTypes.node
+- PropTypes.element
+- PropTypes.bool
+- PropTypes.symbol
+- PropTypes.any
+
+User component 에 대한 PropTypes 를 아래와 같이 정의할 수 있습니다.
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+
+class User extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired
+  }
+
+  render() {
+    return (
+      <>
+        <h1>{`Welcome, ${this.props.name}`}</h1>
+        <h2>{`Age, ${this.props.age}`}</h2>
+      </>
+    )
+  }
+}
+```
+
+Note: React v15.5 에서 PropType은 React.PropTypes 에서 prop-types 라이브러리로 옮겨졌습니다.
+
+52. ### What are the advantages of React?
+#### (React의 장점은 무엇인가요?)
+1. 가상 DOM을 이용하여 application 의 성능을 향상시킵니다.
+2. JSX는 코드를 읽고 쓰는 것을 쉽게 만들어줍니다.
+3. 클라이언트와 서버측 (SSR) 모두 render 됩니다.
+4. 오직 view library 이기 때문에 다른 프레임워크들 (Angular, Backbone)과 손쉽게 통합 할 수 있습니다.
+5. Jest 와 같은 도구를 사용하여 단위 및 통합테스트를 쉽게 작성할 수 있습니다.
+
+53. ### What are the limitations of React?
+#### (React의 한계는 무엇인가요?)
+1. React 전체 framework 가 아닌 view를 위한 library 일 뿐입니다.
+2. 웹 개발을 처음 접하는 초심자들에게는 학습 곡선이 있습니다.
+3. 기존의 MVC framework 에 React 를 합치기 위해서는 몇 가지 추가 구성이 필요합니다.
+4. 인라인 템플릿 및 JSX를 사용하면 코드가 복잡해집니다.
+5. 과도한 엔지니어링 또는 boilerplate 로 이어지는 작은 components 들이 너무 많습니다.
+
+54. ### What are error boundaries in React v16?
+#### (React v16 에서 error boundaries는 무엇인가요?)
+Error boundaries 는 하위 component tree 에서 Javascript error 를 catch 하고, 에러를 기록하고, 오류가 발생한 component tree가 아닌 대체 UI를 표현해 주는 component 입니다.
+
+class component 는 componentDidCatch 라는 새로운 lifecycle 메서드를 정의하면 Error boundaries 됩니다
+
+```js
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true })
+    // You can also log the error to an error reporting service
+    logErrorToMyService(error, info)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>{'Something went wrong.'}</h1>
+    }
+    return this.props.children
+  }
+}
+```
+
+그 다음 일반 component 로 사용합니다.
+
+```js
+<ErrorBoundary>
+  <MyWidget />
+</ErrorBoundary>
+```
+
+55. ### How error boundaries handled in React v15?
+#### (React v15 에서는 어떻게 error boundaries 처리하나요?)
+React v15 에서는 unstable_handleError 메서드를 사용하여 error boundaries 에 대한 기본적인 지원을 했습니다. React v16에서 componentDidCatch로 이름이 변경되었습니다.
+
+56. ### What are the recommended ways for static type checking?
+#### (권장되는 static 한 타입 체크방법은 무엇인가요?)
+일반적으로 우리는 React application 에서 타입 검사를 하기 위해 PropTypes library (React.PropTypes를 React v15.5 부터는 prop-types package 로 옮겼습니다)를 사용합니다.
+대규모의 코드 베이스에서는 compile time 에서 타입 체크를 하고 자동 완성 기능을 제공해주는 Flow 나 TypeScript 와 같은 static type checkers 를 이용하는 것이 좋습니다. 
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
