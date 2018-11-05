@@ -976,14 +976,87 @@ React v15 에서는 unstable_handleError 메서드를 사용하여 error boundar
 일반적으로 우리는 React application 에서 타입 검사를 하기 위해 PropTypes library (React.PropTypes를 React v15.5 부터는 prop-types package 로 옮겼습니다)를 사용합니다.
 대규모의 코드 베이스에서는 compile time 에서 타입 체크를 하고 자동 완성 기능을 제공해주는 Flow 나 TypeScript 와 같은 static type checkers 를 이용하는 것이 좋습니다. 
 
- 
+57. ### What is the use of react-dom package?
+#### (react-dom 패키지의 사용법은 무엇인가요?)
+React-dom 패키지는 App의 최상위 레벨에서 사용할 수 있는 DOM-specific 메서드를 제공합니다. 대부분의 Component 들은 이 모듈을 사용할 필요가 없습니다.
+패키지의 일부 메서드는 다음과 같습니다. 
 
+- render()
+- hydrate()
+- unmountComponentAtNode()
+- findDOMNode()
+- createPortal()
 
+58. ### What is the purpose of render method of react-dom?
+#### (React dom의 render 메서드의 목적은 무엇인가요?)
 
+render 메서드는 제공된 컨테이너의 DOM에 React element를 render 하고 Component에 대한 참조를 반환하는데 사용됩니다. 
+React element가 이전에 렌더링 되었다면 update 를 수행하고 최근의 변경사항을 반영하기 위해 필요에 따라 DOM을 변경합니다.
 
+```js
+ReactDOM.render(element, container[, callback])
+```
 
+만약 optional callback 이 제공된다면, callback은 component 가 렌더링되거나 업데이트 된 후에 실행됩니다.
 
+59. ### What is ReactDOMServer?
+#### (ReactDOMServer 란 무엇인가요?)
+ReactDOMServer 객체를 사용하면 component를 static markup(일반적으로 노드 서버에서 사용됩니다.) 으로 렌더링 할 수 있습니다.
+이 객체는 주로 서버사이드 렌더링(SSR) 에서 사용됩니다. 다음의 메서드는 서버 및 브라우저 환경 모두 사용할 수 있습니다.
 
+- renderToString()
+- renderToStaticMarkup()
+
+예를들어 Express, Hapi, Koa 같은 노드 기반의 웹서버를 실행할때 renderToString을 호출하여 root component 를 문자열로 렌더링 한 다음 response를 보낼 수 있습니다
+
+```js
+// using Express
+import { renderToString } from 'react-dom/server'
+import MyPage from './MyPage'
+
+app.get('/', (req, res) => {
+  res.write('<!DOCTYPE html><html><head><title>My Page</title></head><body>')
+  res.write('<div id="content">')
+  res.write(renderToString(<MyPage/>))
+  res.write('</div></body></html>')
+  res.end()
+})
+```
+
+60. ### How to use innerHTML in React?
+#### (React에서 innerHTML을 어떻게 사용하나요?)
+dangerouslySetInnerHTML 속성은 브라우저 DOM 에서 innerHTML 을 사용하기 위한 React 의 대체 속성입니다.
+innerHTML과 마찬가지로 XXS (Cross-Site Scripting) 공격을 고려했을때 브라우저 DOM 에서 이 속성을 사용하는 것은 위험합니다.
+__html 객체를 키로 HTML 텍스트를 값으로 전달하면됩니다. 
+
+예제에서 MyComponent는 HTML 마크업을 설정하기 위해 dangerouslySetInnerHTML 속성을 사용하고 있습니다.
+
+```js
+function createMarkup() {
+  return { __html: 'First &middot; Second' }
+}
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={createMarkup()} />
+}
+```
+
+61. ### How to use styles in React?
+#### (React styles을 어떻게 사용하나요?)
+style 속성은 CSS 문자열 대신 camelCased 속성의 Javascript 객체를 허용합니다. 이것은 DOM Style Javascript 속성과 일치하며 효율적이고, XSS 보안의 허점을 방지할 수 있습니다.
+
+```js
+const divStyle = {
+  color: 'blue',
+  backgroundImage: 'url(' + imgUrl + ')'
+};
+
+function HelloWorldComponent() {
+  return <div style={divStyle}>Hello World!</div>
+}
+```
+
+Style의 key는 Javascript DOM Node (예 : node.style.backgroundImage)의 속성에 접근하는 것과 일관되게 하기 위해 camelCased 를 사용합니다. 
  
 
 
