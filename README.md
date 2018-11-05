@@ -65,6 +65,11 @@
 |54 | [What are error boundaries in React v16](#what-are-error-boundaries-in-react-v16) |
 |55 | [How error boundaries handled in React v15?](#how-error-boundaries-handled-in-react-v15) |
 |56 | [What are the recommended ways for static type checking?](#what-are-the-recommended-ways-for-static-type-checking) |
+|57 | [What is the use of react-dom package?](#what-is-the-use-of-react-dom-package) |
+|58 | [What is the purpose of render method of react-dom?](#what-is-the-purpose-of-render-method-of-react-dom) |
+|59 | [What is ReactDOMServer?](#what-is-reactdomserver) |
+|60 | [How to use InnerHtml in React?](#how-to-use-innerhtml-in-react) |
+|61 | [How to use styles in React?](#how-to-use-styles-in-react) |
 
 ## Core ReactJS
 
