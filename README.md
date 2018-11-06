@@ -70,6 +70,15 @@
 |59 | [What is ReactDOMServer?](#what-is-reactdomserver) |
 |60 | [How to use InnerHtml in React?](#how-to-use-innerhtml-in-react) |
 |61 | [How to use styles in React?](#how-to-use-styles-in-react) |
+|62 | [How events are different in React?](#how-events-are-different-in-react) |
+|63 | [What will happen if you use setState in constructor?](#what-will-happen-if-you-use-setstate-in-constructor) |
+|64 | [What is the impact of indexes as keys?](#what-is-the-impact-of-indexes-as-keys) |
+|65 | [Is it good to use setState() in componentWillMount() method?](#is-it-good-to-use-setstate-in-componentwillmount-method) |
+|66 | [What will happen if you use props in initial state?](#what-will-happen-if-you-use-props-in-initial-state) |
+|67 | [How do you conditionally render components?](#how-do-you-conditionally-render-components)
+|68 | [Why we need to be careful when spreading props on DOM elements??](#why-we-need-to-be-careful-when-spreading-props-on-dom-elements) |
+|69 | [How you use decorators in React?](#how-you-use-decorators-in-react) |
+|70 | [How do you memoize a component?](#how-do-you-memoize-a-component) |
 
 ## Core ReactJS
 
