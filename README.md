@@ -1389,7 +1389,7 @@ export default class TodoApp extends React.Component {
 80. ### What is the recommended ordering of methods in component class?
 #### (component class 안에서 메서드의 추천 순서는 무엇인가요?)
 
-마운트에서 부터 렌더링 단계의 권장 메서드 지정 순서  
+마운트에서 부터 렌더링 단계까지의 권장 메서드 지정 순서  
 
 - static methods
 - constructor()
@@ -1405,3 +1405,152 @@ export default class TodoApp extends React.Component {
 - getter methods for render like getSelectReason() or getFooterContent()
 - optional render methods like renderNavigation() or renderProfilePicture()
 - render()
+
+81. ### What is a switching component?
+#### (switching component 란 무엇인가요?)
+switching component는 여러 component 중 하나의를 렌더링 하는 component 입니다. 우리는 props 값을 매핑하기 위해 object 를 사용해야합니다. 
+
+예를 들어, switching component 는 페이지의 props 를 기반으로 다른 component 를 보여줍니다.
+
+```js
+import HomePage from './HomePage'
+import AboutPage from './AboutPage'
+import ServicesPage from './ServicesPage'
+import ContactPage from './ContactPage'
+
+const PAGES = {
+  home: HomePage,
+  about: AboutPage,
+  services: ServicesPage,
+  contact: ContactPage
+}
+
+const Page = (props) => {
+  const Handler = PAGES[props.page] || ContactPage
+
+  return <Handler {...props} />
+}
+
+// The keys of the PAGES object can be used in the prop types to catch dev-time errors.
+Page.propTypes = {
+  page: PropTypes.oneOf(Object.keys(PAGES)).isRequired
+}
+```
+
+82. ### Why we need to pass a function to setState()?
+#### (왜 setState 에 함수를 전달해야하나요?)
+이유는 setState 가 비동기적인 작업이기 때문입니다. 성능상의 이유로 state 의 변경은 일괄적으로 일어납니다, 그래서 setState() 의 호출 직후에 state가 변경되지 않을 수 있습니다.   
+state 를 확실할 수 없기 때문에 setState()를 호출 할 때 현재의 state에 의존하면 안됩니다.  
+해결책은 이전 state를 인자로 사용하는 setState()에 함수를 전달하는 것입니다.    
+그렇게 하면 setState()가 가진 비동기성으로 인해 사용자가 접근할때 이전 state의 값을 가져오는 문제를 피할 수 있습니다. 
+
+초기의 count 값이 0 이라고 가정하겠습니다. 세번의 증가연산 후의 값은 오직 1만 증가합니다.
+
+```js
+// assuming this.state.count === 0
+this.setState({ count: this.state.count + 1 })
+this.setState({ count: this.state.count + 1 })
+this.setState({ count: this.state.count + 1 })
+// this.state.count === 1, not 3
+```
+
+setState() 에 함수를 전달하면 올바르게 증가합니다.
+
+```js
+this.setState((prevState, props) => ({
+  count: prevState.count + props.increment
+}))
+// this.state.count === 3 as expected
+```
+
+83. ### What is strict mode in React?
+#### (React 에서 strict mode 는 무엇인가요?)
+React.StrictMode 는 application 의 잠재적인 문제를 강조 표시하는데 유용한 component 입니다. <Fragment>와 처럼 <StrictMode> 도 추가적으로 DOM을 렌더링하지 않습니다. 
+자식에 대한 추가적인 확인과 경고를 활성화합니다. 검사는 개발 모드에만 적용됩니다.  
+
+```js
+import React from 'react'
+
+function ExampleApplication() {
+  return (
+    <div>
+      <Header />
+      <React.StrictMode>
+        <div>
+          <ComponentOne />
+          <ComponentTwo />
+        </div>
+      </React.StrictMode>
+      <Footer />
+    </div>
+  )
+}
+```
+
+위의 예제에서 strict mode 는 <ComponentOne /> 와 <ComponentTwo /> 에만 적용됩니다.    
+<StrictMode> 는 다음과 같은 도움을 줍니다. 
+
+1. 안전하지 않은 lifecycle 메서드를 식별합니다.
+2. 레거시 string ref API 에 대한 경고
+3. 예상치 못한 사이드 이펙트 감지 
+4. legacy context API 감지
+
+84. ### What are React Mixins?
+#### (React Mixins은 무엇인가요?)
+Mixins은 공통적인 기능을 가질 수 있도록 component를 분리하는 방법입니다. Mixins은 사용하지 말아야합니다. higher-order components 또는 decorators 로 대체할 수 있습니다.   
+props와 state가 이전의 props 와 state 가 얕게 같을때 불필요한 재 렌더링을 방지하기 위해 component 에서 사용할 수 있습니다.
+
+```js
+const PureRenderMixin = require('react-addons-pure-render-mixin')
+
+const Button = React.createClass({
+  mixins: [PureRenderMixin],
+  // ...
+})
+``` 
+
+85. ### Why is isMounted() an anti-pattern and what is the proper solution?
+#### (왜 isMounted() 가 안티패턴이고 해결책은 무엇인가요?)
+isMounted() 의 사용 사례는 component의 마운트가 해제 된 후에 setState()를 호출하지 않도록 하는 것입니다. component 마운트가 해제된 후 경고가 발생되기 때문입니다. 
+
+```js
+if (this.isMounted()) {
+  this.setState({...})
+}
+```   
+
+setState() 를 호출하기 전에 isMounted() 를 검사한다면 경고를 제거할 수 있지만, 경고의 목적을 잃어버릴 수 있습니다.
+component의 마운트가 해제된 후에 reference 를 가지고 있다고 생각하기 때문에 isMounted()를 사용하는 것은 [code smell](https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%8A%A4%EB%A9%9C) 입니다.
+
+최적의 해결법은 component의 마운트가 해제된 후 setState() 가 호출될 수 있는 위치를 찾아 수정하는 것입니다. 
+이러한 상황은 component가 데이터를 기다리고 데이터가 도착하기전 마운트가 해제될 때, 콜백으로 인해 많이 발생됩니다.
+콜백은 마운트가 해제되기전에 componentWillUnmount 단계에서 취소되어야합니다. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
