@@ -1526,17 +1526,112 @@ component의 마운트가 해제된 후에 reference 를 가지고 있다고 생
 이러한 상황은 component가 데이터를 기다리고 데이터가 도착하기전 마운트가 해제될 때, 콜백으로 인해 많이 발생됩니다.
 콜백은 마운트가 해제되기전에 componentWillUnmount 단계에서 취소되어야합니다. 
 
+86. ### What are the Pointer Events supported in React?
+#### (React 에서 지원하는 Pointer Events 는 무엇인가요?)
+Pointer Events 는 모든 입력 이벤트를 다루는 통일된 방법을 제공합니다. 옛날에는 마우스와 각각 event listeners 를 다뤘지만, 
+요즘에는 터치스크린, 펜이 있는 휴대전화와 같이 마우스와 상관이 없는 많이 장치가 있습니다. 
+이런 이벤트들은 Pointer Events 를 지원하는 브라우저에서만 동작하는 것을 기억해야합니다.
 
+React DOM 에서는 다음과 같은 event 를 사용할 수 있습니다.
 
+- onPointerDown
+- onPointerMove
+- onPointerUp
+- onPointerCancel
+- onGotPointerCapture
+- onLostPointerCaptur
+- onPointerEnter
+- onPointerLeave
+- onPointerOver
+- onPointerOut
 
+87. ### Why should component names start with capital letter?
+#### (왜 Component 의 이름은 대문자로 시작해야하나요?)
+만약 JSX 를 사용하여 component 를 렌더링하는 경우 component 의 이름은 대문자로 시작하여야 합니다. 
+그렇지 않으면 React 는 알 수 없는 태그로 인식하여 오류가 발생될 것 입니다.
+이 규칙은 HTML 과 SVG 태그만 소문자로 시작할 수 있기 때문에 사용됩니다.
 
+이름이 소문자로 시작하는 component class 를 정의할 수 있지만 가져올떄는 대문자여야 합니다.    
 
+여기 소문자는 괜찬습니다.
 
+```js
+class myComponent extends Component {
+  render() {
+    return <div />
+  }
+}
 
+export default myComponent
+```
 
+다른 파일에서 가져올때는 대문자로 시작해야합니다.
 
+```js
+import MyComponent from './MyComponent'
+```
 
+88. ### Are custom DOM attributes supported in React v16?
+#### (React v16 에서 사용자 정의 DOM 속성이 지원되나요?)
+네 지원됩니다. 과거 React 는 알려지지 않은 DOM 속성은 무시되었었습니다. 
+React 가 인식하지 못하는 속성을 가진 JSX 를 작성한다면 React 는 건너뛸 것 입니다. 
 
+예를 들면 다음과 같습니다.
+
+```js
+<div mycustomattribute={'something'} />
+```
+
+React v15 에서 빈 div 를 DOM 에 렌더링합니다.
+
+```js
+<div />
+```
+
+React v16 에서 알 수 없는 속성은 DOM 에 포함됩니다. 
+
+```js
+<div mycustomattribute='something' />
+```
+
+이 기능은 브라우저 별로 비표준 속성을 제공하고, 새로운 DOM API 를 시도, 다른 라이브러리와 같이 사용할 때 유용합니다.
+
+89. ### What is the difference between constructor and getInitialState?
+#### (constructor 와 getInitialState의 차이점은 무엇인가요?)
+ES6 클래스를 사용할 떄는 constructor에서 state를 초기화할 수 있고, React.createClass 를 사용할 때는 getInitialState() 에서 상태를 초기화해야합니다.  
+ 
+ES6 클래스 사용:
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { /* initial state */ }
+  }
+}
+```
+React.createClass() 사용:
+
+```js
+const MyComponent = React.createClass({
+  getInitialState() {
+    return { /* initial state */ }
+  }
+})
+```
+
+**Note**: React.createClass() 는 이제 사용되지 않고, React v16 에서 제거됩니다. 대신 JS class 를 사용하세요 
+
+90. ### Can you force a component to re-render without calling setState?
+#### (setState 를 호출하지 않고 component 를 강제로 재 렌더링 시킬 수 있나요?)
+기본적으로, component 의 state 또는 props 가 변경되면 component 는 다시 렌더링됩니다. 
+render() 메소드가 다른 data 에 의존성이 있는 경우, forceUpdate() 를 호출하여 component에게 다시 렌더링이 필요하다고 알려줄 수 있습니다. 
+
+```js
+component.forceUpdate(callback)
+```
+
+forceUpdate() 의 사용은 피하고 render() 안의 this.props 와 this.state 는 읽는 용도로 사용하는 것이 좋습니다.
 
 
 
