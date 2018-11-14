@@ -89,6 +89,16 @@
 |78 | [What is the difference between createElement() and cloneElement() methods?](#what-is-the-difference-between-createelement-and-cloneelement-methods) |
 |79 | [What is the recommended way for naming components?](#what-is-the-recommended-way-for-naming-components) |
 |80 | [What is the recommended ordering of methods in component class?](#what-is-the-recommended-ordering-of-methods-in-component-class) |
+|81 | [What is a switching component?](#what-is-a-switching-component) |
+|82 | [Why we need to pass a function to setState()?](#why-we-need-to-pass-a-function-to-setstate) |
+|83 | [What is strict mode in React?](#what-is-strict-mode-in-react) |
+|84 | [What are React Mixins?](#what-are-react-mixins) |
+|85 | [Why is isMounted() an anti-pattern and what is the proper solution?](#why-is-ismounted-an-anti-pattern-and-what-is-the-proper-solution) |
+|86 | [What are the Pointer Events supported in React?](#what-are-the-pointer-events-supported-in-react) |
+|87 | [Why should component names start with capital letter?](#why-should-component-names-start-with-capital-letter) |
+|88 | [Are custom DOM attributes supported in React v16?](#are-custom-dom-attributes-supported-in-react-v16) |
+|89 | [What is the difference between constructor and getInitialState?](#what-is-the-difference-between-constructor-and-getinitialstate) |
+|90 | [Can you force a component to re-render without calling setState?](#can-you-force-a-component-to-re-render-without-calling-setstate) |
 
 ## Core ReactJS
 
