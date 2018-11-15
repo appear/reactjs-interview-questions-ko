@@ -5,6 +5,8 @@
 
 처음 해보는 번역이라 어색한 문맥이 많습니다 :) ..  
 
+도움이 되셨다면 star 눌러주세요 :) 
+
 -------------------------------------------------------------------
 | No. | Questions |
 |---- | ---------
@@ -99,6 +101,11 @@
 |88 | [Are custom DOM attributes supported in React v16?](#are-custom-dom-attributes-supported-in-react-v16) |
 |89 | [What is the difference between constructor and getInitialState?](#what-is-the-difference-between-constructor-and-getinitialstate) |
 |90 | [Can you force a component to re-render without calling setState?](#can-you-force-a-component-to-re-render-without-calling-setstate) |
+|91 | [What is the difference between super() and super(props) in React using ES6 classes?](#what-is-the-difference-between-super-and-super-props-in-react-using-es6-classes) |
+|92 | [How to loop inside JSX?](#how-to-loop-inside-jsx) |
+|93 | [How do you access props in attribute quotes?](#how-do-you-access-props-in-attribute-quotes) |
+|94 | [What is React PropType array with shape?](#what-is-react-proptype-array-with-shape) |
+|95 | [How conditionally apply class attributes?](#how-conditionally-apply-class-attributes) |
 
 ## Core ReactJS
 
@@ -1643,19 +1650,105 @@ component.forceUpdate(callback)
 
 forceUpdate() 의 사용은 피하고 render() 안의 this.props 와 this.state 는 읽는 용도로 사용하는 것이 좋습니다.
 
+91. ### What is the difference between super() and super(props) in React using ES6 classes?
+#### ES6 class 를 사용하는 React 에서 super() 와 super(props) 의 차이점은 무엇인가요?
+constructor() 에서 this.props 에 접근하고 싶을때 super() 메서드에 props 를 전달해야합니다.
 
+super(props)를 사용:
 
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    console.log(this.props) // { name: 'John', ... }
+  }
+}
+```
 
+super() 를 사용:
 
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super()
+    console.log(this.props) // undefined
+  }
+}
+```
 
+constructor() 의 밖에서의 this.props 에는 같은 값이 표시됩니다.
 
+92. ### How to loop inside JSX?
+#### 어떻게 JSX 안에서 loop 를 하나요?
+ES6 arrow function 과 함께 Array.prototype.map 를 사용할 수 있습니다. 예를 들어, 객체의 items 배열은 component 의 배열로 맵핑됩니다.
 
+```js
+<tbody>
+  {items.map(item => <SomeComponent key={item.id} name={item.name} />)}
+</tbody>
+```
 
+for loop 를 사용하여 반복할 수 없습니다.
 
+```js
+<tbody>
+  for (let i = 0; i < items.length; i++) {
+    <SomeComponent key={items[i].id} name={items[i].name} />
+  }
+</tbody>
+```
 
+JSX 태그는 함수 호출로 변환되어지기 떄문에 표현식 안에서 JS 표현법을 사용할 수 없습니다.
+이것은 stage 1 에 제안되어 변경되어질 수 있습니다.
 
+93. ### How do you access props in attribute quotes?
+#### (attribute 따옴표에서 props 에 어떻게 접근하나요?)
+React (또는 JSX) 는 속성 값 안에 써넣은 값은 지원되지 않습니다. 아래의 표현식은 동작하지 않습니다. 
 
+```js
+<img className='image' src='images/{this.props.image}' />
+```
 
+그러나 중괄호 안에 JS 표현식을 감싸 속성 값으로 넣을 수 있습니다. 아래의 표현식은 동작합니다.
 
+```js
+<img className='image' src={'images/' + this.props.image} />
+```
 
+템플릿 문자열을 사용해도 동작합니다.
 
+```js
+<img className='image' src={`images/${this.props.image}`} />
+```
+
+94. ### What is React proptype array with shape?
+특정 모양을 가진 component 에 객체 배열을 전달하고 싶다면 React.PropTypes.arrayOf()의 인자로 React.PropTypes.shape() 를 사용하세요
+
+```js
+ReactComponent.propTypes = {
+  arrayWithShape: React.PropTypes.arrayOf(React.PropTypes.shape({
+    color: React.PropTypes.string.isRequired,
+    fontSize: React.PropTypes.number.isRequired
+  })).isRequired
+}
+```
+
+95. ### How conditionally apply class attributes?
+#### (어떻게 조건에 따라 class 속성을 적용하나요?)
+따옴표안에 중괄호를 사용하면 string 으로 인식되기 때문에 중괄호를 사용하면 안됩니다.
+
+```js
+<div className="btn-panel {this.props.visible ? 'show' : 'hidden'}">
+```
+
+중괄호 밖으로 옮겨야 합니다. (class 의 이름 사이에 공백을 포함하는 것을 잊으면 안됩니다.)
+
+```js
+<div className={'btn-panel ' + (this.props.visible ? 'show' : 'hidden')}>
+```
+
+템플릿 문자열을 사용해도 동작합니다.
+
+```js
+<div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
+```
