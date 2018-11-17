@@ -648,7 +648,7 @@ UI 의 object representation으로 사용될 react element를 만들기 위해 J
 
 32. ### What is Lifting State Up in React?
 #### (React 에서 Lifting State Up 은 무엇인가요?)
-여러 component 들이 동일한 변경 데이터를 공유해야하는 경우 가까운 부모 component 로 state를 올리는 것이 좋습니다. 즉, 두개의 자식 component가 부모의 있는 동일한 데이터를 공유할 때 두개의 자식 component 들은 부모로 state를 올리는 대신 local state를 유지해야합니다.
+여러 component 들이 동일한 변경 데이터를 공유해야하는 경우 가까운 부모 component 로 state를 올리는 것이 좋습니다. 즉, 두개의 자식 component가 부모에 있는 동일한 데이터를 공유할 때 두개의 자식 component 들은 local state를 유지하는 대신, 부모로 state를 올려야 합니다.
 
 33. ### What are the different phases of component lifecycle?
 #### (component 라이프사이클 단계는 무엇이 다른가요?)
