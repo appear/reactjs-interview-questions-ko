@@ -106,6 +106,12 @@
 |93 | [How do you access props in attribute quotes?](#how-do-you-access-props-in-attribute-quotes) |
 |94 | [What is React PropType array with shape?](#what-is-react-proptype-array-with-shape) |
 |95 | [How conditionally apply class attributes?](#how-conditionally-apply-class-attributes) |
+|96 | [What is the difference between React and ReactDOM?](#what-is-the-difference-between-react-and-reactdom) |
+|97 | [Why ReactDOM is separated from React?](#why-reactdom-is-separated-from-react) |
+|98 | [How to use React label element?](#how-to-use-react-label-element?) |
+|99 | [How to combine multiple inline style objects?](#how-to-combine-multiple-inline-style-objects) |
+|100| [How to re-render the view when the browser is resized?](#how-to-re-render-the-view-when-the-browser-is-resized)
+|101| [What is the difference between setState and replaceState methods?](#what-is-the-difference-between-setstate-and-replacestate-methods) |
 
 ## Core ReactJS
 
@@ -1752,3 +1758,93 @@ ReactComponent.propTypes = {
 ```js
 <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
 ```
+
+96. ### What is the difference between React and ReactDOM?
+#### (React와 ReactDOM은 무엇이 다른가요?)
+React package 에는 React.createElement (), React.Component, React.Children 및 element 와 component class 관련된 helper 들이 포함되어 있습니다.
+이런 기능들은 component 를 구축하는데 필요한 helpers 로 생각할 수 있습니다.
+react-dom package 에는 ReactDOM.render () 가 포함되어있고, react-dom/server 에는 ReactDOMServer.renderToString() 과 ReactDOMServer.renderToStaticMarkup() 포함되어있어 서버사이드 렌더링을 지원합니다.
+
+97. ### Why ReactDOM is separated from React?
+#### (왜 React 와 ReactDOM은 분리되어있나요?)
+React 팀은 모든 DOM 과 관련된 기능들을 ReactDOM 이라는 라이브러리로 분리하였습니다. 
+React v0.14 는 ReactDOM 이 분리된 첫번째 릴리즈입니다.
+React-native, Reaction-Art, Reaction-Canvas, React-3 등 패키지의 일부를 보면 React 의 아름다움과 본질적인 부분이 브라우저나 DOM 과 아무런 관계가 없다는 것을 알 수 있습니다.
+React 가 렌더링할 수 있는 많은 환경들을 만들기 위해, React 팀은 React 와 React-dom 을 분리할 계획을 세웠습니다.
+이것은 웹 버전의 React 와 React native 사이의 공유할 수 있는 component 를 작성하는 방법을 개척합니다.
+
+98. ### How to use React label element?
+#### (React 에서 label element 를 어떻게 사용하나요?)
+표준 `for` 속성을 사용하는 text input 에 바인드된 label element 를 렌더링하려고하면 속성이없는 HTML이 생성되고 console 에 경고가 출력됩니다.
+
+```js
+<label for={'user'}>{'User'}</label>
+<input type={'text'} id={'user'} />
+```
+
+for 는 JS 의 예약된 키워드입니다, 대신 htmlFor 를 사용하세요 
+
+```js
+<label htmlFor={'user'}>{'User'}</label>
+<input type={'text'} id={'user'} />
+```
+
+99. ### How to combine multiple inline style objects?
+#### (어떻게 여러개의 inline style object 를 합치나요?)
+React 에서 spread operator 를 사용할 수 있습니다.
+
+```js
+<button style={{...styles.panel.button, ...styles.panel.submitButton}}>{'Submit'}</button>
+```
+
+React Native 를 사용하고 있다면 배열 표기법을 사용할 수 있습니다.
+
+```js
+<button style={[styles.panel.button, styles.panel.submitButton]}>{'Submit'}</button>
+```
+
+100. ### How to re-render the view when the browser is resized?
+#### (어떻게 브라우저가 resize 될 때 재 렌더링 시키나요?)
+componentDidMount() 에서 resize 이벤트를 listen 할 수 있고, 크기(width, height)를 update 할 수 있습니다. 
+componentWillUnmount() 에서 listener 를 제거해줘야합니다.
+ 
+```js
+class WindowDimensions extends React.Component {
+  componentWillMount() {
+    this.updateDimensions()
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions)
+  }
+
+  updateDimensions() {
+    this.setState({width: $(window).width(), height: $(window).height()})
+  }
+
+  render() {
+    return <span>{this.state.width} x {this.state.height}</span>
+  }
+}
+```
+
+101. ### What is the difference between setState() and replaceState() methods?
+#### (setState() 와 replaceState() 의 차이점은 무엇인가요?)
+setState() 를 사용하면 이전 state 와 다음 state 가 병합됩니다. replaceState()는 현재 state 를 버리고 당신이 제공한 state 로 바꿉니다.
+이전의 key 들을 모두 제거해야되는 경우가 아니라면 보통 setState() 가 사용됩니다.
+replaceState()를 사용하는 대신 setState()에서 state 를 flase/null 로 설정할 수 있습니다.
+
+
+
+
+
+
+
+
+
+
+
