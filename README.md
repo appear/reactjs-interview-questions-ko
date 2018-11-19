@@ -1838,13 +1838,113 @@ setState() 를 사용하면 이전 state 와 다음 state 가 병합됩니다. r
 이전의 key 들을 모두 제거해야되는 경우가 아니라면 보통 setState() 가 사용됩니다.
 replaceState()를 사용하는 대신 setState()에서 state 를 flase/null 로 설정할 수 있습니다.
 
+102. ### How to listen to state changes?
+#### (어떻게 state 의 변경을 listen 하나요?)
+state 가 변경될때 다음의 lifecycle 메서드들이 호출됩니다.
+이전에 제공된 state 와 props 의 값을 현재의 state와 props와 비교하여 의미있는 변화가 있는지 확인할 수 있습니다.
 
+```js
+componentWillUpdate(object nextProps, object nextState)
+componentDidUpdate(object prevProps, object prevState)
+```
 
+103. ### What is the recommended approach of removing an array element in React state?
+#### (React state 에서 배열요소를 제거하는 추천방법은 무엇인가요?)
+좋은 방법은 Array.prototype.filter() 메서드를 사용하는 것입니다.
 
+예를 들어, state update를 위한 removeItem () 메서드를 만들겠습니다.
 
+```js
+removeItem(index) {
+  this.setState({
+    data: this.state.data.filter((item, i) => i !== index)
+  })
+}
+```
 
+104. ### Is it possible to use React without rendering HTML?
+#### (HTML 렌더링 없이 React를 사용할 수 있나요?)
+latest version (최신버전 >= 16.2) 부터 가능합니다. 가능한 옵션은 다음과 같습니다.
 
+```js
+render() {
+  return false
+}
+```
 
+```js
+render() {
+  return null
+}
+```
 
+```js
+render() {
+  return []
+}
+```
 
+```js
+render() {
+  return <React.Fragment></React.Fragment>
+}
+```
 
+```js
+render() {
+  return <></>
+}
+```
+
+105. ### How to pretty print JSON with React?
+#### (React와 함께 어떻게 이쁘게 JSON 을 print 하나요?)
+`<pre>` 태그를 사용하여 JSON.stringify() 형식이 유지되도록 할 수 있습니다.
+
+```js
+const data = { name: 'John', age: 42 }
+
+class User extends React.Component {
+  render() {
+    return (
+      <pre>
+        {JSON.stringify(data, null, 2)}
+      </pre>
+    )
+  }
+}
+
+React.render(<User />, document.getElementById('container'))
+```
+
+106. ### Why you can't update props in React?
+#### (왜 React에서 props 를 update 할 수 없나요?)
+React 의 철학은 props 는 immutable(불변) 이어야하고 top-down (부모 -> 자식) 방식입니다.
+부모는 모든 props 값을 자식에게 보낼 수 있지만, 자식은 받은 props 를 변경할 수 없습니다.
+
+107. ### How to focus an input element on page load?
+#### (어떻게 페이지 로드시에 input element 에 focus 하나요?)
+input element 를 위한 ref 를 생성하여 componentDidMount() 에서 사용하면 됩니다.
+
+```js
+class App extends React.Component{
+  componentDidMount() {
+    this.nameInput.focus()
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          defaultValue={'Won\'t focus'}
+        />
+        <input
+          ref={(input) => this.nameInput = input}
+          defaultValue={'Will focus'}
+        />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'))
+```
