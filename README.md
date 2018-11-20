@@ -1488,7 +1488,7 @@ this.setState((prevState, props) => ({
 
 83. ### What is strict mode in React?
 #### (React 에서 strict mode 는 무엇인가요?)
-React.StrictMode 는 application 의 잠재적인 문제를 강조 표시하는데 유용한 component 입니다. <Fragment>와 처럼 <StrictMode> 도 추가적으로 DOM을 렌더링하지 않습니다. 
+React.StrictMode 는 application 의 잠재적인 문제를 강조 표시하는데 유용한 component 입니다. `<Fragment>`처럼, `<StrictMode>` 도 추가적으로 DOM을 렌더링하지 않습니다. 
 자식에 대한 추가적인 확인과 경고를 활성화합니다. 검사는 개발 모드에만 적용됩니다.  
 
 ```js
