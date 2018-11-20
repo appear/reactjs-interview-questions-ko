@@ -112,6 +112,15 @@
 |99 | [How to combine multiple inline style objects?](#how-to-combine-multiple-inline-style-objects) |
 |100| [How to re-render the view when the browser is resized?](#how-to-re-render-the-view-when-the-browser-is-resized)
 |101| [What is the difference between setState and replaceState methods?](#what-is-the-difference-between-setstate-and-replacestate-methods) |
+|102| [How to listen to state changes?](#how-to-listen-to-state-changes) |
+|103| [What is the recommended approach of removing an array element in react state?](#what-is-the-recommended-approach-of-removing-an-array-element-in-react-state) |
+|104| [Is it possible to use React without rendering HTML?](#is-it-possible-to-use-react-without-rendering-html) |
+|105| [How to pretty print JSON with React?](#how-to-pretty-print-json-with-react) |
+|106| [Why you can't update props in React?](#why-you-cant-update-props-in-react) |
+|107| [How to focus an input element on page load?](#how-to-focus-an-input-element-on-page-load) |
+|108| [What are the possible ways of updating objects in state?](#what-are-the-possible-ways-of-updating-objects-in-state) |
+|109| [Why function is preferred over object for setState?](#why-function-is-preferred-over-object-for-setstate) |
+|110| [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser) |
 
 ## Core ReactJS
 
@@ -1948,3 +1957,92 @@ class App extends React.Component{
 
 ReactDOM.render(<App />, document.getElementById('app'))
 ```
+
+108. ### What are the possible ways of updating objects in state?
+#### (state 의 object 를 update 할 수 있는 방법은 무엇인가요?)
+
+1. state 와 합쳐질 object 를 사용하여 setState() 호출  
+- Object.assign() 을 사용하여 object 의 복사본을 만듭니다.
+
+```js
+const user = Object.assign({}, this.state.user, { age: 42 })
+this.setState({ user })
+```
+
+- spread operator 를 사용:
+
+```js
+const user = { ...this.state.user, age: 42 }
+this.setState({ user })
+```
+
+
+2. function 을 이용하여 setState() 호출:
+
+```js
+this.setState(prevState => ({
+  user: {
+    ...prevState.user,
+    age: 42
+  }
+}))
+```
+
+### 109. Why function is preferred over object for setState()?
+#### (왜 setState()를 위한 function 이 object 보다 선호되나요?)
+React 는 성능을 위해 여러 setState() 호출들을 일괄 처리 합니다.
+이유는 this.props 와 this.state는 비동기로 update 될 수 있습니다. 다음 state 를 계산할 때 계산된 값을 신뢰하면 안됩니다.
+
+카운터 예제는 기대한대로 update 되지 않습니다.
+
+```js
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment,
+})
+```
+
+추천되는 접근방법은 object 가 아닌 function 으로 setState() 를 호출하는 것입니다.
+function 은 첫번째 인자로 이전 state를 받고 두 번째 인자로 update가 적용될 때의 props 를 받습니다.
+
+```js
+// Correct
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}))
+```
+
+110. ### How can we find the version of React at runtime in the browser?
+#### (브라우저에서 React의 버전을 runtime 시 어떻게 찾을 수 있나요?)
+
+React.version 을 사용하면 버전을 가져올 수 있습니다.
+
+```js
+const REACT_VERSION = React.version
+
+ReactDOM.render(
+  <div>{`React version: ${REACT_VERSION}`}</div>,
+  document.getElementById('app')
+)
+```
+
+111. ### What are the approaches to include polyfills in your create-react-app?
+#### (create-react-app 에 polyfills를 포함시키는 방법은 무엇인가요?)
+
+1. core-js 에서 수동 import:
+- polyfills.js 파일을 만들어 root index.js 에서 import 합니다. `npm install core-js` 또는 `yarn add core-js` 를 추가하고 필요한 기능을 import 합니다.
+
+```js
+import 'core-js/fn/array/find'
+import 'core-js/fn/array/includes'
+import 'core-js/fn/number/is-nan'
+```
+
+2. Polyfill 서비스 사용:
+- polyfill.io CDN 을 사용하여 다음의 줄을 index.html 에 추가하고, 사용자 지정 브라우저별 Polyfill을 검색합니다.
+
+```js
+<script src='https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes'></script>
+```
+
+위의 스크립트에서 Array.prototype.includes 는 기본 스펙에 포함되지 않았기 때문에 기능을 요청했습니다.
