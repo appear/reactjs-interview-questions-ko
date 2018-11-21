@@ -42,9 +42,9 @@
 |29 | [What are controlled components?](#what-are-controlled-components) |
 |30 | [What are uncontrolled components?](#what-are-uncontrolled-components) |
 |31 | [What is the difference between createElement and cloneElement?](#what-is-the-difference-between-createelement-and-cloneelement)|
-|32 | [What is Lifting State Up in ReactJS?](#what-is-lifting-state-up-in-reactjs)|
-|33 | [What are the different phases of ReactJS component lifecycle?](#what-are-the-different-phases-of-reactjs-component-lifecycle)|
-|34 | [What are the lifecycle methods of ReactJS?](#what-are-the-lifecycle-methods-of-reactjs)|
+|32 | [What is Lifting State Up in React?](#what-is-lifting-state-up-in-react)|
+|33 | [What are the different phases of component lifecycle?](#what-are-the-different-phases-of-component-lifecycle)|
+|34 | [What are the lifecycle methods of React?](#what-are-the-lifecycle-methods-of-react)|
 |35 | [What are Higher-Order components?](#what-are-higher-order-components)|
 |36 | [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component)|
 |37 | [What is context?](#what-is-context)|
@@ -101,14 +101,14 @@
 |88 | [Are custom DOM attributes supported in React v16?](#are-custom-dom-attributes-supported-in-react-v16) |
 |89 | [What is the difference between constructor and getInitialState?](#what-is-the-difference-between-constructor-and-getinitialstate) |
 |90 | [Can you force a component to re-render without calling setState?](#can-you-force-a-component-to-re-render-without-calling-setstate) |
-|91 | [What is the difference between super() and super(props) in React using ES6 classes?](#what-is-the-difference-between-super-and-super-props-in-react-using-es6-classes) |
+|91 | [What is the difference between super() and super(props) in React using ES6 classes?](#what-is-the-difference-between-super-and-superprops-in-react-using-es6-classes) |
 |92 | [How to loop inside JSX?](#how-to-loop-inside-jsx) |
 |93 | [How do you access props in attribute quotes?](#how-do-you-access-props-in-attribute-quotes) |
 |94 | [What is React PropType array with shape?](#what-is-react-proptype-array-with-shape) |
 |95 | [How conditionally apply class attributes?](#how-conditionally-apply-class-attributes) |
 |96 | [What is the difference between React and ReactDOM?](#what-is-the-difference-between-react-and-reactdom) |
 |97 | [Why ReactDOM is separated from React?](#why-reactdom-is-separated-from-react) |
-|98 | [How to use React label element?](#how-to-use-react-label-element?) |
+|98 | [How to use React label element?](#how-to-use-react-label-element) |
 |99 | [How to combine multiple inline style objects?](#how-to-combine-multiple-inline-style-objects) |
 |100| [How to re-render the view when the browser is resized?](#how-to-re-render-the-view-when-the-browser-is-resized)
 |101| [What is the difference between setState and replaceState methods?](#what-is-the-difference-between-setstate-and-replacestate-methods) |
@@ -269,7 +269,7 @@ class User extends React.Component {
 
 ![state](./public/state.jpg)
 
-9. ### What is props in ReactJS ? 
+9. ### What is props in ReactJS? 
 #### (props란 무엇인가요?)
 [Props](https://reactjs.org/docs/components-and-props.html) 는 HTML 태그 속성과 유사한 규칙을 사용하여 React component 에 전달되는 값을 포함하는 단일 값 또는 객체입니다. 부모 component 에서 자식 component 로 전달되는 데이터 입니다.
 
@@ -291,7 +291,7 @@ React에서 props 의 목적은 아래와 같은 기능을 component에 제공�
 props.reactProp;
 ```
 
-10. ### What is the difference between state and props ? 
+10. ### What is the difference between state and props? 
 #### (state와 props의 차이점은 무엇인가요?)
 props와 state는 모두 JavaScript 객체입니다. 두가지 다 렌더링 결과에 영향을 주는 정보를 가지고 있지만, component 와 관련된 기능면에서 차이가 있습니다.  
 props는 함수 매개변수와 같이 component 요소로 전달됩니다. state 는 component 안에서 관리되고 사용할 변수 선언과 비슷합니다.
@@ -355,7 +355,7 @@ function handleClick(e) {
 }
 ```
 
-14. ### How to bind methods or event handlers in JSX callbacks? (Or) How to use this keyword in JSX callbacks? 
+14. ### How to bind methods or event handlers in JSX callbacks?
 #### (This를 바인딩하는 방법은 어떤 것들이 있나요?)
 3가지의 방법이 있습니다.
 
@@ -1999,7 +1999,7 @@ this.setState(prevState => ({
 }))
 ```
 
-### 109. Why function is preferred over object for setState()?
+109. ### Why function is preferred over object for setState()?
 #### (왜 setState()를 위한 function 이 object 보다 선호되나요?)
 React 는 성능을 위해 여러 setState() 호출들을 일괄 처리 합니다.
 이유는 this.props 와 this.state는 비동기로 update 될 수 있습니다. 다음 state 를 계산할 때 계산된 값을 신뢰하면 안됩니다.
