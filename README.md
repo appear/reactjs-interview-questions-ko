@@ -1532,11 +1532,11 @@ function ExampleApplication() {
 위의 예제에서 strict mode 는 <ComponentOne /> 와 <ComponentTwo /> 에만 적용됩니다.    
 <StrictMode> 는 다음과 같은 도움을 줍니다. 
 
-1. 안전하지 않은 lifecycle 메서드를 식별합니다.
-2. 레거시 string ref API 에 대한 경고
-3. 예상치 못한 사이드 이펙트 감지 
-4. legacy context API 감지
-
+- 안전하지 않은 lifecycle 메서드를 식별합니다.
+- 레거시 string ref API 에 대한 경고
+- 예상치 못한 사이드 이펙트 감지 
+- legacy context API 감지
+    
     
 84. ### What are React Mixins?
 #### (React Mixins은 무엇인가요?)
