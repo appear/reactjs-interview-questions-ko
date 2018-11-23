@@ -2162,4 +2162,104 @@ class MyComponent extends React.Component {
 
 static 필드는 statge 3 의 제안된 부분입니다.
 
+121. ### How to programmatically trigger click event in React?
+#### (React 에서 어떻게 프로그래밍 방식으로 클릭 이벤트를 트리거 할 수 있나요?)
+callback 을 통한 ref prop 를 사용하여 `HTMLInputElement` 객체에 대한 참조를 가져와 class property 로 저장하고,
+나중에 저장된 참조를 사용를 이용하여 `HTMLElement.click` 메서드를 사용해 이벤트 핸들러에서 클릭 이벤트를 트리거 할 수 있습니다.  
 
+이 작업은 두 단계로 나눌 수 있습니다.
+
+1. render 메서드 안에서 ref 생성
+ 
+```jsx harmony
+<input ref={input => this.inputElement = input} />
+```
+
+2. 이벤트 핸들러에서 클릭 이벤트 제공:
+
+```js
+this.inputElement.click()
+```
+
+122. ###(Is it possible to use async/await in plain React?
+#### (기본 React 에서 async/await 를 사용할 수 있나요?)
+React 에서 async/await 을 사용하고 싶다면 Babel 과 transform-async-to-generator 플러그인이 필요합니다.
+
+123. ### What are the common folder structures for React?
+#### (React 의 일반 폴더 구조는 무엇인가요?)
+
+여기 React project 의 파일 구조에 대한 두 가지의 사례가 있습니다.
+
+1. 기능 또는 경로별로의 그룹:
+프로젝트를 구조화하는 하나의 일반적인 방법으로는 기능이나 경로별로 그룹화된 CSS, JS, test 들을 함께 구성하는 것입니다.
+
+```text
+common/
+├─ Avatar.js
+├─ Avatar.css
+├─ APIUtils.js
+└─ APIUtils.test.js
+feed/
+├─ index.js
+├─ Feed.js
+├─ Feed.css
+├─ FeedStory.js
+├─ FeedStory.test.js
+└─ FeedAPI.js
+profile/
+├─ index.js
+├─ Profile.js
+├─ ProfileHeader.js
+├─ ProfileHeader.css
+└─ ProfileAPI.js
+```
+
+2. 파일 형식의 그룹화
+프로젝트를 구조화하는 다른 인기있는 방법으로는 유사한 파일들을 그룹화하는 것입니다.
+
+```text
+api/
+├─ APIUtils.js
+├─ APIUtils.test.js
+├─ ProfileAPI.js
+└─ UserAPI.js
+components/
+├─ Avatar.js
+├─ Avatar.css
+├─ Feed.js
+├─ Feed.css
+├─ FeedStory.js
+├─ FeedStory.test.js
+├─ Profile.js
+├─ ProfileHeader.js
+└─ ProfileHeader.css
+```
+
+124. ### What are the popular packages for animation?
+#### (애니메이션을 위한 인기있는 패키지는 무엇인가요?)
+React 생태계에서 인기있는 애니메이션 패키지는 React Transition Group과 React Motion 입니다.
+
+125. ### What is the benefit of styles modules?
+#### (styles modules 의 이점은 무엇인가요?)
+styles modules 은 component 에서 style 의 값을 하드 코딩하는 것을 피하기 위해 추천됩니다. 
+서로 다른 UI component 에서 사용될 수 있는 값들은 자체 모듈에서 받아와야 합니다.
+
+예를 들어, 이런 style 들은 별도의 component 로 받아낼 수 있습니다.
+
+```js
+export const colors = {
+  white,
+  black,
+  blue
+}
+
+export const space = [
+  0,
+  8,
+  16,
+  32,
+  64
+]
+```
+ 
+다른 component 들로 개별적으로 가져올 수 있습니다.  
