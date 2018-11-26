@@ -2262,4 +2262,81 @@ export const space = [
 ]
 ```
  
-다른 component 들로 개별적으로 가져올 수 있습니다.  
+다른 component 들에서 개별적으로 가져올 수 있습니다.  
+
+```
+import { space, colors } from './styles'
+```
+
+126. ### What are the popular React-specific linters?
+#### (인기있는 React linters 는 무엇인가요?)
+ESLint 는 인기있는 Javascript linters 입니다. ESLint 는 코드 스타일을 분석할 수 있는 플러그인입니다.
+React 에서 대부분 사용하는 npm 패키지 중 하나는 `eslint-plugin-react` 입니다.
+기본적으로 몇가지의 best practices 를 확인하여 규칙을 바탕으로 iterators 의 key 에서 전체 prop type 까지 확인합니다.
+다른 인기있는 플러그인은 `eslint-plugin-jsx-a11y` 이며, 접근성을 통해 문제를 해결하는데 도움을 줍니다.
+JSX 는 일반적인 HTML 문법과 약간 다르게 제공하므로, `alt` text 그리고 `tabindex` 같은 문제는 플러그인으로 선택되지 않습니다.
+
+127. ### How to make AJAX call and in which component lifecycle methods should I make an AJAX call?
+#### (어떻게 AJAX 를 호출하고 어떤 lifecycle 에서 메서드를 호출해야하나요?)
+AJAX 라이브러리인 Axios, jQuery AJAX, 그리고 브라우저에 내장된 fetch 를 사용할 수 있습니다.
+`componentDidMount()` lifecycle 메서드에서 데이터를 불러와야합니다.
+setStaet() 를 사용하여 데이터를 검색할때 component 를 update 할 수 있습니다.
+
+예를 들어, API 에서 직원목록을 가져와 local state 를 설정합니다:
+
+```jsx harmony
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      employees: [],
+      error: null
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://api.example.com/items')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            employees: result.employees
+          })
+        },
+        (error) => {
+          this.setState({ error })
+        }
+      )
+  }
+
+  render() {
+    const { error, employees } = this.state
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else {
+      return (
+        <ul>
+          {employees.map(item => (
+            <li key={employee.name}>
+              {employee.name}-{employees.experience}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  }
+}
+```
+
+128. ### What are render props?
+#### (Render Props 란 무엇인가요?)
+Render Props 는 값이 함수인 prop 를 이용하여 component 간에 코드를 공유하는 기술입니다.
+아래 component 는 render prop 을 사용하여 React element 를 반환합니다.
+
+```jsx harmony
+<DataProvider render={data => (
+  <h1>{`Hello ${data.target}`}</h1>
+)}/>
+```
+
+React Router 와 DownShift 라이브러리는 이 패턴을 사용합니다.
