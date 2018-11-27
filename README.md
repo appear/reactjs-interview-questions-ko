@@ -2340,3 +2340,24 @@ Render Props 는 값이 함수인 prop 를 이용하여 component 간에 코드�
 ```
 
 React Router 와 DownShift 라이브러리는 이 패턴을 사용합니다.
+
+## React Router
+
+129. ### What is React Router?
+#### (React Router 가 무엇인가요?)
+React Router 는 React 에 구현된 강력한 routing 라이브러리 입니다.
+페이지에 보여지는 내용과 URL 을 동기화된 상태로 유지해주고, 애플리케이션에 새로운 화면과 흐름을 추가할 수 있게 도와줍니다.
+
+130. ### How React Router is different from history library?
+#### (React router 와 history 라이브러리의 다른점은 무엇인가요?)
+React router 는 history 라이브러리를 감싼 래퍼입니다. React router는 브라우저의 `window.history` 과 상호작용을 하고, 브라우저 및 hash history 을 다룹니다.
+또 모바일 앱 개발 (React Native) 및 Node 의 unit testing 처럼 global history 가 없는 환경에 유용한 memory 히스토리를 제공합니다.
+
+131. ### What are the <Router> components of React Router v4?
+#### (React router v4 의 <Router> component 는 무엇이 있나요?)
+
+React router v4는 아래와 같은 3가지 component 를 제공합니다.
+
+- <BrowserRouter>
+- <HashRouter>
+- <MemoryRouter>
