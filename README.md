@@ -131,6 +131,17 @@
 |118| [Why React component names must begin with a capital letter?](#why-react-component-names-must-begin-with-a-capital-letter) |
 |119| [Why is a component constructor called only once?](#why-is-a-component-constructor-called-only-once) |
 |120| [How to define constants in React?](#how-to-define-constants-in-react) |
+|121| [How to programmatically trigger click event in React?](#how-to-programmatically-trigger-click-event-in-react) |
+|122| [Is it possible to use async/await in plain React?](#is-it-possible-to-use-asyncawait-in-plain-react) |
+|123| [What are the common folder structures for React?](#what-are-the-common-folder-structures-for-react) |
+|124| [What are the popular packages for animation?](#what-are-the-popular-packages-for-animation) |
+|125| [What is the benefit of styles modules?](#what-is-the-benefit-of-styles-modules) |
+|126| [What are the popular React-specific linters?](#what-are-the-popular-react-specific-linters) |
+|127| [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call) |
+|128| [What are render props?](#what-are-render-props) |
+|   | **React Router** |
+|129| [What is React Router?](#what-is-react-router) |
+|130| [How React Router is different from history library?](#how-react-router-is-different-from-history-library) |
 
 ## Core ReactJS
 
