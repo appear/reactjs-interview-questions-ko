@@ -2372,3 +2372,118 @@ React router v4는 아래와 같은 3가지 component 를 제공합니다.
 - <BrowserRouter>
 - <HashRouter>
 - <MemoryRouter>
+
+위의 components 들은 browser, hash, 그리고 memory history 인스턴스를 만듭니다.
+React Router v4 는 Router Object 의 context 를 통해 history 인스턴스의 속성과 메서드를 이용할 수 있게 해줍니다.
+
+132. ### What is the purpose of push() and replace() methods of history?
+#### (history의 push() 와 replace()  메서드의 목적은 무엇인가요?)
+history 인스턴스에는 navigation 을 위한 두 가지 메서드가 있습니다.
+
+- push()
+- replace()
+
+방문한 위치의 history 를 배열로 생각한다면, push() 는 배열에 새 위치를 추가하는 것이고 replace() 는 현재의 위치를 새 위치로 변경하는 것입니다.
+
+133. ### How do you programmatically navigate using React Router v4?
+#### (어떻게 프로그래밍 방식으로 React Router v4 의 navigate  를 사용하나요?)
+
+component 안에서 프로그래밍 방식으로 routing/navigation 을 수행하는 세가지의 다른 방법이 있습니다.
+
+- withRouter() higher-order function 을 사용하기:
+withRouter () higher-order function 은 history object 를 component 의 prop 로 삽입합니다.
+이 객체는 context 의 사용을 피하기 위해 push() 그리고 replace() 메서드를 제공합니다.
+
+```jsx harmony
+import { withRouter } from 'react-router-dom' // this also works with 'react-router-native'
+
+const Button = withRouter(({ history }) => (
+  <button
+    type='button'
+    onClick={() => { history.push('/new-location') }}
+  >
+    {'Click Me!'}
+  </button>
+))
+```
+
+- <Route> component 그리고 render props 패턴 사용하기:
+<Router> component 는 withRouter() 와 같은 prop 를 전달하므로, history prop 를 통해 history 메서드에 접근할 수 있습니다.
+
+```jsx harmony
+import { Route } from 'react-router-dom'
+
+const Button = () => (
+  <Route render={({ history }) => (
+    <button
+      type='button'
+      onClick={() => { history.push('/new-location') }}
+    >
+      {'Click Me!'}
+    </button>
+  )} />
+)
+```
+
+- context 사용
+이 옵션은 추천되지 않으며 불안정한 API 로 처리됩니다.
+
+```jsx harmony
+const Button = (props, context) => (
+  <button
+    type='button'
+    onClick={() => {
+      context.history.push('/new-location')
+    }}
+  >
+    {'Click Me!'}
+  </button>
+)
+
+Button.contextTypes = {
+  history: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  })
+}
+```
+
+134. ### How to get query parameters in React Router v4?
+#### (React Router v4 에서 어떻게 query parameters 가져오나요?)
+수년동안 다른 구현 지원에 대한 사용자들의 요청이 있었기 때문에 React Router v4의 query strings 을 parse 하는 기능이 제거되었습니다.
+그래서 사용자들이 선호하는 구현방식을 선택하도록 결정되었습니다.
+추천 방법은 query strings 라이브러리를 사용하는것 입니다.
+
+```jsx harmony
+const queryString = require('query-string');
+const parsed = queryString.parse(props.location.search);
+```
+
+native 방식을 원한다면 URLSearchParams 을 사용할 수 있습니다.
+
+```jsx harmony
+const params = new URLSearchParams(props.location.search)
+const foo = params.get('name')
+```
+
+IE11에는 polyfill을 사용해야합니다.
+
+135. ### Why you get "Router may have only one child element" warning?
+#### (왜 "Router 는 오직 하나의 자식 element 만 있을 수 있습니다" 라는 경고를 받나요?)
+<Switch> 는 route 를 독점적으로 렌더링하기 때문에 <Switch> 으로 Route 들을 감싸야합니다.
+
+먼저 Switch 를 가져와야 추가해야 합니다.
+
+```jsx harmony
+import { Switch, Router, Route } from 'react-router'
+```
+
+<Switch> 블록안에 routes 를 정의해아합니다.
+
+```jsx harmony
+<Router>
+  <Switch>
+    <Route {/* ... */} />
+    <Route {/* ... */} />
+  </Switch>
+</Router>
+```
