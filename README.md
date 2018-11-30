@@ -2369,9 +2369,11 @@ React router 는 history 라이브러리를 감싼 래퍼입니다. React router
 
 React router v4는 아래와 같은 3가지 component 를 제공합니다.
 
+```jsx harmony
 - <BrowserRouter>
 - <HashRouter>
 - <MemoryRouter>
+```
 
 위의 components 들은 browser, hash, 그리고 memory history 인스턴스를 만듭니다.
 React Router v4 는 Router Object 의 context 를 통해 history 인스턴스의 속성과 메서드를 이용할 수 있게 해줍니다.
@@ -2487,3 +2489,97 @@ import { Switch, Router, Route } from 'react-router'
   </Switch>
 </Router>
 ```
+
+136. ### How to pass params to history.push method in React Router v4?
+#### (React Router v4 에서 어떻게 history.push 메서드에 파라미터를 전달하나요?)
+
+navigating 하는 동안 history object 에 props 를 전달할 수 있습니다.
+
+```js
+this.props.history.push({
+  pathname: '/template',
+  search: '?name=sudheer',
+  state: { detail: response.data }
+})
+```
+
+`search` 속성은 push() 메서드에 query params 을 전달하는데 사용됩니다.
+
+137. ### How to implement default or NotFound page?
+#### (기본 페이지 또는 NotFound 를 어떻게 구현하나요?)
+
+`<Switch>` 는 일치하는 첫번째 자식 `<Route>` 를 렌더링합니다. 경로가 없는 `<Route>` 는 항상 일치합니다.
+아래와 같이 경로를 속성을 제거해주면됩니다.
+
+```jsx harmony
+<Switch>
+  <Route exact path="/" component={Home}/>
+  <Route path="/user" component={User}/>
+  <Route component={NotFound} />
+</Switch>
+```
+
+138. ### How to get history on React Router v4?
+#### (어떻게 React Router v4에서 history를 얻나요?)
+
+- history object 를 내보내고 이 모듈을 전체 프로젝트에 가져오는 모듈을 만드세요.
+
+예를 들면, history.js 파일을 만듭니다.
+
+```js
+import { createBrowserHistory } from 'history'
+
+export default createBrowserHistory({
+  /* pass a configuration object here if needed */
+})
+```
+
+- 기본 구현된 routers 대신 `<Router>` component 를 사용해야합니다. index.js 에서 위의 history.js 를 가져왔습니다.
+
+```jsx harmony
+import { Router } from 'react-router-dom'
+import history from './history'
+import App from './App'
+
+ReactDOM.render((
+  <Router history={history}>
+    <App />
+  </Router>
+), holder)
+```
+
+- 기본 구현된 history object 와 유사하 history object 의 push 메서드를 사용할 수 있습니다.
+
+```jsx harmony
+// some-other-file.js
+import history from './history'
+
+history.push('/go-here')
+```
+
+139. ### How to perform automatic redirect after login?
+#### (어떻게 로그인후에 자동으로 redirect 를 시키나요?)
+
+`react-router` 패키지는 React Router 에 `<Redirect>` component 를 제공합니다. `<Redirect>` 을 렌더링하면 새로운 위치로 이동합니다.
+server-side redirect 와 같이, history stack 의 현재 위치를 새로운 위치로 덮어씌웁니다. 
+
+```jsx harmony
+import React, { Component } from 'react'
+import { Redirect } from 'react-router'
+
+export default class LoginComponent extends Component {
+  render() {
+    if (this.state.isLoggedIn === true) {
+      return <Redirect to="/your/redirect/page" />
+    } else {
+      return <div>{'Login Please'}</div>
+    }
+  }
+}
+```
+
+
+
+
+
+
