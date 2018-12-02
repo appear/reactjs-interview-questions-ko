@@ -2578,8 +2578,109 @@ export default class LoginComponent extends Component {
 }
 ```
 
+## React Internationalization
 
+140. ### What is React Intl?
+#### (React Intl 이 무엇인가요?)
+[React Intl](https://github.com/yahoo/react-intl) 라이브러리는 문자열, 날짜와 숫자, 다중화 formatting 을 다룰 수 있는 component 와 api 를 제공합니다.
+React Intl 는 components 와 API 를 통해 React 에 바인딩을 제공하는 FormatJS 의 일부분입니다.
 
+141. ### What are the main features of React Intl?
+#### (React Intl 의 주요 특징은 무엇인가요?)
 
+- [구분자와 함께 숫자를 표시합니다](https://medium.com/@marcelmokos/internationalize-react-apps-done-right-using-react-intl-library-82978dbe175e)
+- 날짜와 시간을 정확하게 표시합니다.
+- "now" 를 기준으로 날짜를 표시합니다.
+- 150 개 이상의 언어를 지원합니다.
+- 브라우저와 노드에서 실행됩니다.
+- 표준을 기반으로 구축되었습니다.
 
+142. ### What are the two ways of formatting in React Intl?
+#### (React Intl 에서 formatting 을 하는 두 가지 방법은 무엇인가요?)
 
+라이브러리는 문자, 숫자와 날짜의 형식을 지정하는 두 가지 방법을 제공합니다. : React component 또는 API 
+
+```jsx harmony
+<FormattedMessage
+  id={'account'}
+  defaultMessage={'The amount is less than minimum balance.'}
+/>
+```
+
+```jsx harmony
+const messages = defineMessages({
+  accountMessage: {
+    id: 'account',
+    defaultMessage: 'The amount is less than minimum balance.',
+  }
+})
+
+formatMessage(messages.accountMessage)
+```
+
+143. ### How to use <FormattedMessage> as placeholder using React Intl?
+#### (어떻게 React Intl를 사용하여 <FormattedMessage> 를 placeholder 로 사용하나요?)
+
+react-intl 의 <Formatted... /> component 는 elements 를 리턴하므로, placeholders, alt text, etc 등을 사용할 수 없습니다.
+이런 경우에는 하위 레벨의 API formatMessage() 를 사용해야합니다.
+higher-order component 인 injectIntl() 를 사용하여 component 에 intl object 를 주입하고 object 에서 사용할 수 있는 formatMessage() 를 사용하여 message 형식을 지정할 수 있습니다.
+
+```jsx harmony
+import React from 'react'
+import { injectIntl, intlShape } from 'react-intl'
+
+const MyComponent = ({ intl }) => {
+  const placeholder = intl.formatMessage({id: 'messageId'})
+  return <input placeholder={placeholder} />
+}
+
+MyComponent.propTypes = {
+  intl: intlShape.isRequired
+}
+
+export default injectIntl(MyComponent)
+```
+
+144. ### How to access current locale with React Intl?
+### (어떻게 React Intl 를 사용하여 현재 locale 에 접근하나요?)
+
+`injectIntl()` 를 사용하면 application 의 모든 component 에서 현재 locale 을 가져올 수 있습니다.
+
+```jsx harmony
+import { injectIntl, intlShape } from 'react-intl'
+
+const MyComponent = ({ intl }) => (
+  <div>{`The current locale is ${intl.locale}`}</div>
+)
+
+MyComponent.propTypes = {
+  intl: intlShape.isRequired
+}
+
+export default injectIntl(MyComponent)
+```
+
+145. ### How to format date using React Intl?
+#### (React Intl 을 사용해서 어떻게 날짜 형식을 지정하나요?)
+higher-order component 인 `injectIntl()` 는 component 의 props 를 통해 `formatDate ()` 메서드에 대한 접근을 제공합니다.
+이 메서드는 FormatedDate 의 인스턴스 내부에서 사용되며 형식이 지정된 날짜의 문자 표현을 반환합니다.
+
+```jsx harmony
+import { injectIntl, intlShape } from 'react-intl'
+
+const stringDate = this.props.intl.formatDate(date, {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+})
+
+const MyComponent = ({intl}) => (
+  <div>{`The formatted date is ${stringDate}`}</div>
+)
+
+MyComponent.propTypes = {
+  intl: intlShape.isRequired
+}
+
+export default injectIntl(MyComponent)
+```
