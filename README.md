@@ -4,6 +4,7 @@
 영어 원본: https://github.com/sudheerj/reactjs-interview-questions#what-is-reactjs
 
 처음 해보는 번역이라 어색한 문맥이 많습니다 :) ..  
+하루에 5 ~ 10 개 정도의 질문이 추가됩니다.
 
 도움이 되셨다면 star 눌러주세요 :) 
 
@@ -142,6 +143,22 @@
 |   | **React Router** |
 |129| [What is React Router?](#what-is-react-router) |
 |130| [How React Router is different from history library?](#how-react-router-is-different-from-history-library) |
+|131| [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4) |
+|132| [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history) |
+|133| [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4) |
+|134| [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4) |
+|135| [Why you get "Router may have only one child element" warning?](#why-you-get-router-may-have-only-one-child-element-warning) |
+|136| [How to pass params to history.push method in React Router v4?](#how-to-pass-params-to-historypush-method-in-react-router-v4) |
+|137| [How to implement default or NotFound page?](#how-to-implement-default-or-notfound-page) |
+|138| [How to get history on React Router v4?](#how-to-get-history-on-react-router-v4) |
+|139| [How to perform automatic redirect after login?](#how-to-perform-automatic-redirect-after-login) |
+|   | **React Internationalization** |
+|140| [What is React-Intl?](#what-is-react-intl) |
+|141| [What are the main features of React Intl?](#what-are-the-main-features-of-react-intl) |
+|142| [What are the two ways of formatting in React Intl?](#what-are-the-two-ways-of-formatting-in-react-intl) |
+|143| [How to use FormattedMessage as placeholder using React Intl?](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
+|144| [How to access current locale with React Intl](#how-to-access-current-locale-with-react-intl) |
+|145| [How to format date using React Intl?](#how-to-format-date-using-react-intl) |
 
 ## Core ReactJS
 
