@@ -2684,3 +2684,93 @@ MyComponent.propTypes = {
 
 export default injectIntl(MyComponent)
 ```
+
+## React Testing
+
+### 146. What is Shallow Renderer in React testing?
+#### (React 테스트에서 얕은 렌더링은 무엇인가요?)
+
+얕은 렌더링은 React 에서 단위 테스트 케이스를 작성하는데 유용합니다.
+그것은 component 를 한단계 깊이로 렌더링하며 인스턴스화 또는 렌더링 되지 않은 하위 component 의 행동에 대한 걱정없이 
+렌더링 메서드가 반환하는 것에 대한 사실을 주장할 수 있습니다.
+
+예를 들어, 다음과 같은 component 가 있는 경우:
+
+```jsx harmony
+function MyComponent() {
+  return (
+    <div>
+      <span className={'heading'}>{'Title'}</span>
+      <span className={'description'}>{'Description'}</span>
+    </div>
+  )
+}
+```
+
+다음과 같이 주장 할 수 있습니다:
+
+```jsx harmony
+import ShallowRenderer from 'react-test-renderer/shallow'
+
+// in your test
+const renderer = new ShallowRenderer()
+renderer.render(<MyComponent />)
+
+const result = renderer.getRenderOutput()
+
+expect(result.type).toBe('div')
+expect(result.props.children).toEqual([
+  <span className={'heading'}>{'Title'}</span>,
+  <span className={'description'}>{'Description'}</span>
+])
+```
+
+147. ### What is TestRenderer package in React?
+#### (React 의 TestRenderer 패키지는 무엇인가요?)
+패키지는 component 를 DOM 또는 Native mobile 환경에 의존없이 순수 Javascript Object 로 렌더링 할 수 있는 renderer 를 제공합니다.
+패키지를 사용하면 브라우저 또는 jsdom 의 사용없이 ReactDOM 또는 React Native 에서 렌더링 되는 플랫폼의 뷰 계층구조 (DOM 트리와 유사하다) 의 스냅샷을 쉽게 가져올 수 있습니다.
+
+```jsx harmony
+import TestRenderer from 'react-test-renderer'
+
+const Link = ({page, children}) => <a href={page}>{children}</a>
+
+const testRenderer = TestRenderer.create(
+  <Link page={'https://www.facebook.com/'}>{'Facebook'}</Link>
+)
+
+console.log(testRenderer.toJSON())
+// {
+//   type: 'a',
+//   props: { href: 'https://www.facebook.com/' },
+//   children: [ 'Facebook' ]
+// }
+```
+
+148. ### What is the purpose of ReactTestUtils package?
+#### (ReactTestUtils 패키지의 목적은 무엇인가요?)
+ReactTestUtils 는 with-addons 에서 제공되며 유닛 테스트를 위해 시뮬레이션된 DOM 에 대한 작업을 수행할 수 있습니다.
+
+149. ### What is Jest?
+#### (Jest 는 무엇인가요?)
+Jest 는 Facebook 에서 만든 Jasmine 기반의 Javascript 단위 테스트 프레임워크이며 자동화 된 모의 생성 및 jsdom 환경을 제공합니다.
+종종 component 를 테스트하기위해 사용됩니다.
+
+150. ### What are the advantages of Jest over Jasmine?
+#### (Jasmine 보다 좋은 Jest 의 장점은 무엇인가요?)
+
+Jasmine 과 비교하였을때 몇가지 장점이 있습니다.
+
+- 소스코드에서 실핼할 테스트를 자동으로 찾아줍니다.
+- 테스트 실행시 자동으로 모의 의존성을 가져옵니다.
+- 비동기 코드를 동기적으로 테스트할 수 있습니다.
+- command line 에서 테스트를 실핼할 수 있도록 가짜 DOM 구현 (jsdom 을 통해) 테스트를 실행합니다.
+- 병렬 프로세스에서 테스트가 실행되어 빨리 완료됩니다.
+
+
+
+
+
+
+
+
