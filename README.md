@@ -159,6 +159,17 @@
 |143| [How to use FormattedMessage as placeholder using React Intl?](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
 |144| [How to access current locale with React Intl](#how-to-access-current-locale-with-react-intl) |
 |145| [How to format date using React Intl?](#how-to-format-date-using-react-intl) |
+|   | **React Testing** |
+|146| [What is Shallow Renderer in React testing?](#what-is-shallow-renderer-in-react-testing) |
+|147| [What is TestRenderer package in React?](#what-is-testrenderer-package-in-react) |
+|148| [What is the purpose of ReactTestUtils package?](#what-is-the-purpose-of-reacttestutils-package) |
+|149| [What is Jest?](#what-is-jest) |
+|150| [What are the advantages of Jest over Jasmine?](#what-are-the-advantages-of-jest-over-jasmine) |
+|151| [Give a simple example of Jest test case](#give-a-simple-example-of-jest-test-case) |
+|   | **React Redux** |
+|152| [What is Flux?](#what-is-flux) |
+|153| [What is Redux?](#what-is-redux) |
+|154| [What are the core principles of Redux?](#what-are-the-core-principles-of-redux) |
 
 ## Core ReactJS
 
@@ -2784,9 +2795,76 @@ Jasmine 과 비교하였을때 몇가지 장점이 있습니다.
 - command line 에서 테스트를 실핼할 수 있도록 가짜 DOM 구현 (jsdom 을 통해) 테스트를 실행합니다.
 - 병렬 프로세스에서 테스트가 실행되어 빨리 완료됩니다.
 
+151. ### Give a simple example of Jest test case
+#### (Jest 테스트 케이스의 간단한 예제입니다)
+`sum.js` 파일에 두개의 숫자를 더하는 함수의 테스트를 작성해보겠습니다.
 
+```js
+const sum = (a, b) => a + b
 
+export default sum
+```
 
+테스트가 포함되어 있는 `sum.test.js` 파일을 만들어주세요
+
+```js
+import sum from './sum'
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3)
+})
+```
+
+`package.json` 에 다음 부분을 추가해주세요 
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+마지막으로 yarn test 또는 npm test 를 실행해주세요 Jest 는 결과를 출력해줄거에요
+
+```text
+$ yarn test
+PASS ./sum.test.js
+✓ adds 1 + 2 to equal 3 (2ms)
+```
+
+## React Redux
+
+152. ### What is flux?
+#### (Flux 가 뭔가요?)
+Flux 는 전통적인 MVC 패턴을 교체하기 위해 사용되는 application 설계 패러다임 입니다.  
+Flux 는 라이브러리나 프레임워크는 아니고 React 와 단방향 데이터 흐름의 개념을 보완해주는 새로운 아키텍쳐입니다. 
+Facebook 은 React로 작업할때 Flux 패턴을 사용합니다.
+
+dispatcher, stores 그리고 views 컴포넌트 사이의 작업흐름은 input 과 output 이 다음과 같이 구분되어집니다.
+
+![flux](./public/flux.png)
+
+153. ### What is Redux?
+#### (Redux 가 뭔가요?)
+
+Redux 는 Flux 설계 패턴을 기반으로한 Javascript App 을 위한 예측 가능한 상태 컨테이너입니다. 
+Redux 는 React 또는 다른 view 라이브러리들과 함께 사용될 수 있습니다.
+그것은 작고 (2KB 정도) 종속성이 없습니다.
+
+154. ### What are the core principles of Redux?
+#### (React 의 핵심적인 원리는 무엇인가요?)
+
+Redux 는 세가지의 기본원리를 따릅니다.
+ 
+1. 단일 출처: 전체 application 의 상태는 하나의 스토어의 객체 트리에 저장됩니다. 
+단일 상태 트리를 이용하면 시간 경과에 따른 변경사항 추척과 디버깅 또는 application 의 검사를 쉽게해줍니다.
+
+2. 읽기전용의 상태: 상태를 변경하는 유일한 방법은 발생한 일에 대한 액션을 보내는것입니다.
+이것은 view 와 Network callback 에서 상태를 직접 쓰지 않도록 보장합니다.
+
+3. 순수함수로 만들어진다: 상태 트리가 액션에 의해 어떻게 변환될지를 reducers 에 작성해야합니다. 
+Reducers 는 이전의 상태와 매개변수를 받는 순수함수이고 다음 상태를 반환해줍니다.
 
 
 
