@@ -1635,7 +1635,7 @@ React DOM 에서는 다음과 같은 event 를 사용할 수 있습니다.
 
 이름이 소문자로 시작하는 component class 를 정의할 수 있지만 가져올떄는 대문자여야 합니다.    
 
-여기 소문자는 괜찬습니다.
+여기 소문자는 괜찮습니다.
 
 ```js
 class myComponent extends Component {
