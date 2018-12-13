@@ -2866,6 +2866,51 @@ Redux 는 세가지의 기본원리를 따릅니다.
 3. 순수함수로 만들어진다: 상태 트리가 액션에 의해 어떻게 변환될지를 reducers 에 작성해야합니다. 
 Reducers 는 이전의 상태와 매개변수를 받는 순수함수이고 다음 상태를 반환해줍니다.
 
+155. ### What are the downsides of Redux compared to Flux?
+#### (Flux 와 비교했을때 Redux 의 단점은 무엇인가요?)
+단점을 말하는것 보다는 Flux 보다 Redux 를 사용하는 것에 있어 타협점이 거의 없습니다. 예시는 다음과 같습니다.  
 
+- 변이를 피하는 방법을 배워야합니다 : Flux 는 data 의 변이에 대해 유동적입니다. 그러나 Redux 는 변이를 좋아하지 않고 Redux 를 보완해주는 많은 패키지들이
+ 상태를 변화시키지 않도록 합니다. `redux-immutable-state-invariant` 나 `Immutable.js` 같은 개발 전용 패키지로 실시할 수 있으며, 당신의 팀에게 변이가 없는 코드를 가르칠 수 있습니다.
+ 
+- 신중하게 패키지를 선택해야합니다: Flux 는 실행취소/다시실행, 지속성 또는 폼에 대한 문제를 해결하려 하지 않지만, Redux 는 미들웨어
+ 및 Store 개선 등 확장된 포인트들을 가지고 풍부한 생태계를 만들어 냈습니다.
+ 
+156. ### What is the difference between mapStateToProps() and mapDispatchToProps()?
+#### (mapStateToProps() 와 mapDispatchToProps() 의 다른점은 무엇인가요?)
+`mapStateToProps()` 는 component 가 업데이트된 상태(다른 component 에 의해 업데이트된) 를 가져올 수 있게 도와주는 유틸리티입니다. 
 
+```js
+const mapStateToProps = (state) => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }
+}
+```
 
+`mapDispatchToProps()` 는 component 가 이벤트를 발생시킬 수 있도록 도와주는 유틸리티입니다. (application 의 상태가 변경될 수 있도록 action 을 보냄)
+
+```js
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => {
+      dispatch(toggleTodo(id))
+    }
+  }
+}
+```
+
+157. ### Can I dispatch an action in reducer?
+#### (reducer 에서 action 을 전달할 수 있나요?)
+reducer 안에서 action 을 보내는 것은 안티패턴입니다. reducer 는 side effects 가 없어야하고 단순히 action 에 대한 처리와 새로운 객체를 반환해야합니다.
+reducer 안에서 액션을 보내거나 listeners 를 추가한다면 다른 side effects 가 발생할 수 있습니다.
+
+158. ### How to access Redux store outside a component?
+#### (component 의 밖에서 Redux store 에 어떻게 접근하나요?)
+`createStore()` 를 사용하여 만든 store 모듈을 내보내면 됩니다. 또한 global  window 객체를 더럽히면 안됩니다.
+
+```js
+store = createStore(myReducer)
+
+export default store
+```
