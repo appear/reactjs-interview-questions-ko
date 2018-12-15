@@ -2914,3 +2914,73 @@ store = createStore(myReducer)
 
 export default store
 ```
+
+159. ### What are the drawbacks of MVW pattern?
+#### (MVW 패턴의 단점은 무엇인가요?)
+- DOM 의 조작은 매우 느리고 비싸기 때문에 applications 의 동작을 느리고 비효율적이게합니다.
+- 순환되는 종속성은 모델과 뷰를 복잡하게 만듭니다 
+- 협업 applications 에서는 많은 데이터의 변화가 일어납니다 (ex. Google docs)
+- 많은 코드를 추가하지않고 실행을 취소할 수 있는 방법이 없습니다.
+
+160. ### Are there any similarities between Redux and RxJS?
+#### (Redux 와 RxJS 의 유사한점이 있나요?)
+
+두 라이브러리는 다른 목적을 가지고 있습니다. 그러나 약간의 유사점이 있습니다.
+
+Redux 는 application 의 전체 상태를 관리하기 위한 툴입니다. 일반적으로 UI 를 위한 구조로 사용됩니다.   
+RxJS 는 반응형 프로그래밍 라이브러리입니다. 일반적으로 Javascript 에서 비동기적인 작업을 위해 사용됩니다. Promises 의 대안으로 사용할 수 있습니다. 
+Redux 의 store 는 반응형이기 때문에 반응형 패러다임을 사용합니다. store 는 action 을 관찰하여 스스로 변화합니다. 
+RxJS 또한 반응형 패러다임을 사용하지만 아키텍쳐는 아니므로 Observables 라는 빌딩 블록을 사용하여 패턴을 제공합니다.
+  
+161. ### How to dispatch an action on load?
+#### (어떻게 load 시에 action 을 전달하나요?)
+`componentDidMount` 와 `render()` 메서드에서 액션을 전달할 수 있고 데이터를 확인할 수 있습니다.
+
+```jsx harmony
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchData()
+  }
+
+  render() {
+    return this.props.isLoaded
+      ? <div>{'Loaded'}</div>
+      : <div>{'Not Loaded'}</div>
+  }
+}
+
+const mapStateToProps = (state) => ({
+  isLoaded: state.isLoaded
+})
+
+const mapDispatchToProps = { fetchData }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+```
+
+162. ### How to use connect() from React Redux?
+#### (어떻게 React Redux 에서 connect() 를 사용하나요?)
+container 에서 store 를 사용하려면 두 단계를 따라야합니다.
+
+- `mapStateToProps() 사용`: store 의 상태 값들을 지정 props 에 맵핑합니다. 
+- 위의 props 를 컨테이너에 맵핑합니다: `mapStateToProps` 함수에 의해 리턴된 객체들은 컨테이너에 연결됩니다. `react-redux` 에서 `connect()` 를 가져올 수 있습니다.
+
+```jsx harmony
+import React from 'react'
+import { connect } from 'react-redux'
+
+class App extends React.Component {
+  render() {
+    return <div>{this.props.containerData}</div>
+  }
+}
+
+function mapStateToProps(state) {
+  return { containerData: state.data }
+}
+
+export default connect(mapStateToProps)(App)
+```
+
+
+
