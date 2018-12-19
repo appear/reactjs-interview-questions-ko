@@ -170,6 +170,17 @@
 |152| [What is Flux?](#what-is-flux) |
 |153| [What is Redux?](#what-is-redux) |
 |154| [What are the core principles of Redux?](#what-are-the-core-principles-of-redux) |
+|155| [What are the downsides of Redux compared to Flux?](#what-are-the-downsides-of-redux-compared-to-flux) |
+|156| [What is the difference between mapStateToProps() and mapDispatchToProps()?](#what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops) |
+|157| [Can I dispatch an action in reducer?](#can-i-dispatch-an-action-in-reducer) |
+|158| [How to access Redux store outside a component?](#how-to-access-redux-store-outside-a-component) |
+|159| [What are the drawbacks of MVW pattern](#what-are-the-drawbacks-of-mvw-pattern) |
+|160| [Are there any similarities between Redux and RxJS?](#are-there-any-similarities-between-redux-and-rxjs) |
+|161| [How to dispatch an action on load?](#how-to-dispatch-an-action-on-load) |
+|162| [How to use connect from React Redux?](#how-to-use-connect-from-react-redux) |
+|163| [How to reset state in Redux?](#how-to-reset-state-in-redux) |
+|164| [Whats the purpose of at symbol in the redux connect decorator?](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator) |
+|165| [What is the difference between React context and React Redux?](#what-is-the-difference-between-react-context-and-react-redux) |
 
 ## Core ReactJS
 
@@ -2982,5 +2993,106 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(App)
 ```
 
+163. ### How to reset state in Redux?
+#### (어떻게 Redux 에서 상태 값을 초기화하나요?)
+`combineReducers()`로 생성된 reducer 에게 action 을 위임하도록 application 에 root reducer 를 작성해야합니다. 
+
+예를 들어, `rootReducer()` 는 `USER_LOGOUT` action 후 초기 상태 값을 반환하도록 합니다. reducer 는 action 에 상관없이
+ 첫 번째 매개변수가 undefined 로 호출될 때, 초기 상태 값을 반환합니다. 
+
+```js
+const appReducer = combineReducers({
+  /* your app's top-level reducers */
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+```
+
+`redux-persist` 를 사용할 경우 storage 를 비워야 할 수도 있습니다. `redux-persist` 은 복사된 상태값을 storage engine 에 저장해둡니다. 
+우선 storage engine 을 가져오고, 상태를 undefined 로 설정하기 전에 storage state key 들을 비워주세요  
+
+```js
+const appReducer = combineReducers({
+  /* your app's top-level reducers */
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    Object.keys(state).forEach(key => {
+      storage.removeItem(`persist:${key}`)
+    })
+
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+```
+
+164. ### Whats the purpose of at symbol in the Redux connect decorator?
+#### (Redux connect decorator 의 at symbol 의 목적은 무엇인가요?)
+@ symbol 은 decorators 를 나타내기위한 자바스크립트 표현식입니다. Decorators 는 설계시에 class 와 속성에 주석을 달고 수정을 할 수 있게 해줍니다.
+
+decorator 가 없는 Redux 를 예로 들어보겠습니다.
+
+- Without decorator:
+
+```js
+import React from 'react'
+import * as actionCreators from './actionCreators'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+class MyApp extends React.Component {
+  // ...define your main app here
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyApp)
+```
+
+- With decorator:
+
+```js
+import React from 'react'
+import * as actionCreators from './actionCreators'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class MyApp extends React.Component {
+  // ...define your main app here
+}
+```
+
+위의 예제는 decorator 의 사용여부를 제외하고는 비슷합니다. decorator 는 아직 자바스크립트 runtime 에 구현되지 않았습니다.
+여전히 실험적인 주제이므로 변화될 수 있습니다. decorators 를 지원하기 위해 babel 을 사용할 수 있습니다.
+
+165. ### What is the difference between React context and React Redux?
+#### (React context 와 React Redux 는 무엇이 다른가요?)
+application 에서 직접적으로 Context 를 사용할 수 있으며 깊게 중첩된 component 들에게 데이터를 전달하는데 유용합니다.
+Redux 는 훨씬 강력하며 Context API 가 지원하지 않는 많은 기능들을 제공해줍니다.
+React Redux 는 내부적으로 Context 를 사용하지만 public API 에 공개하지 않았습니다.
 
 
