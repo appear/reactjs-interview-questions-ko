@@ -3095,4 +3095,81 @@ application 에서 직접적으로 Context 를 사용할 수 있으며 깊게 �
 Redux 는 훨씬 강력하며 Context API 가 지원하지 않는 많은 기능들을 제공해줍니다.
 React Redux 는 내부적으로 Context 를 사용하지만 public API 에 공개하지 않았습니다.
 
+166. ### Why are Redux state functions called reducers?
+#### (왜 Redux 상태 함수를 reducers 라 부르나요 ?)
+Reducers 는 항상 모든 이전과 현재의 action 들을 기반으로 누적한 상태를 반환합니다. 
+Redux reducer 가 호출 될 때 마다 상태와 액션이 파라미터로 전달됩니다. 
+상태는 action 에 따라 축소되거나 누적되어 다음 상태를 반환합니다. 
+최종 상태를 얻기 위한 action을 실행함에 있어 action 단위와 store 의 초기 상태 값을 줄일 수 있습니다. 
 
+167. ### How to make AJAX request in Redux? 
+#### (어떻게 Redux 에서 AJAX 요청을 하나요?)
+비동기 action 을 정의할 수 있는 `redux-thunk` 미들웨어를 사용할 수 있습니다.
+
+fetch API 를 사용하여 특정한 계정을 AJAX call 로 가져오는 예제를 살펴보겠습니다.
+
+```js
+export function fetchAccount(id) {
+  return dispatch => {
+    dispatch(setLoadingAccountState()) // Show a loading spinner
+    fetch(`/account/${id}`, (response) => {
+      dispatch(doneFetchingAccount()) // Hide loading spinner
+      if (response.status === 200) {
+        dispatch(setAccount(response.json)) // Use a normal function to set the received state
+      } else {
+        dispatch(someError)
+      }
+    })
+  }
+}
+
+function setAccount(data) {
+ return { type: 'SET_Account', data: data }
+}
+```
+
+168. ### Should I keep all component's state in Redux store?
+#### (Redux Store 에서 component 들의 모든 상태를 저장하고 있어야 하나요?)
+
+Redux Store 에서는 Data 를 저장하고 component 내부에서는 UI 에 관련된 상태들을 저장합니다. 
+
+169. ### What is the proper way to access Redux store?
+#### (Redux store 에 접근하는 올바른 방법은 무엇인가요?)
+
+component 에서 store 에 접근하는 가장 좋은 방법은 `connect()` 함수를 사용하는 것 입니다. 
+connect() 함수는 기존의 component 를 감싸 새로운 component 를 만듭니다. 
+이 패턴은 `Higher-Order Components` 라고 불리며, React 에서 일반적으로 component 의 기능을 확장하는 기본적인 방법입니다. 이 방법은 상태와 action 생성자를 component 에 매핑하고 store 가 update 되면 자동적으로 
+component 에 state 와 action 생성자를 전달할 수 있도록 해줍니다.
+
+connect 를 사용한 `<FilterLink>` component 를 예로 들어보겠습니다.
+
+```jsx
+import { connect } from 'react-redux'
+import { setVisibilityFilter } from '../actions'
+import Link from '../components/Link'
+
+const mapStateToProps = (state, ownProps) => ({
+  active: ownProps.filter === state.visibilityFilter
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
+})
+
+const FilterLink = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Link)
+
+export default FilterLink
+```
+
+성능 최적화가되어 있고 일반적으로 버그를 유발할 가능성이 적기 때문에 Redux 개발자들은 (Context API 를 사용하여) 직업 store 에 접근하는 것 보다는 `connect()` 를 사용하는것을 대부분 추천합니다.
+
+```js
+class MyComponent {
+  someMethod() {
+    doSomethingWith(this.context.store)
+  }
+}
+```
