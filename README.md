@@ -3164,7 +3164,7 @@ const FilterLink = connect(
 export default FilterLink
 ```
 
-성능 최적화가되어 있고 일반적으로 버그를 유발할 가능성이 적기 때문에 Redux 개발자들은 (Context API 를 사용하여) 직업 store 에 접근하는 것 보다는 `connect()` 를 사용하는것을 대부분 추천합니다.
+성능 최적화가되어 있고 일반적으로 버그를 유발할 가능성이 적기 때문에 Redux 개발자들은 Context API 를 사용하여 직접 store 에 접근하는 것 보다는 `connect()` 를 사용하는것을 대부분 추천합니다.
 
 ```js
 class MyComponent {
@@ -3173,3 +3173,118 @@ class MyComponent {
   }
 }
 ```
+
+170. ### What is the difference between component and container in React Redux?
+#### (React Redux 에서 container 와 component 의 다른점은 무엇인가요?)
+
+Component 는 application 의 보여지는 부분을 묘사하는 class 또는 function component 입니다.   
+Container 는 Redux store 와 연결된 component 를 부르는 비공식적인 용어입니다.  
+Container 는 Redux 의 state update 와 action 을 구독하며, DOM element 를 렌더링하지 않습니다. 하위 표현 component 들에게 rendering 을 위임합니다.
+
+171. ### What is the purpose of the constants in Redux?
+#### (Redux 안의 상수들의 목적은 무엇인가요?)
+
+상수를 사용하면 IDE 를 사용할 때 프로젝트 전체에서 특정한 기능의 모든 사용내역을 쉽게 찾을 수 있습니다. 또한 오타로 인한 어리석은 버그를 방지할 수 있습니다. 오타의 경우 즉시 `ReferenceError` 에러가 발생합니다.
+
+일반적으로 우리는 하나의 파일에 저장합니다 (`constants.js` 또는 `actionTypes.js`)
+
+```js
+export const ADD_TODO = 'ADD_TODO'
+export const DELETE_TODO = 'DELETE_TODO'
+export const EDIT_TODO = 'EDIT_TODO'
+export const COMPLETE_TODO = 'COMPLETE_TODO'
+export const COMPLETE_ALL = 'COMPLETE_ALL'
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
+```
+
+Redux 에서는 두 가지의 공간에서 사용합니다.
+
+1. action 생성중: 
+
+`actions.js` 를 만듭니다.
+
+```js
+import { ADD_TODO } from './actionTypes';
+
+export function addTodo(text) {
+  return { type: ADD_TODO, text }
+}
+```
+
+2. reducers 안에서 
+`reducer.js` 를 만듭니다.
+
+```js
+import { ADD_TODO } from './actionTypes'
+
+export default (state = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ];
+    default:
+      return state
+  }
+}
+```
+
+172. ### What are the different ways to write mapDispatchToProps()?
+#### (mapDispatchToProps() 를 작성하는 다른 방법은 무엇이 있나요?)
+`mapDispatchToProps()` 안에서 `dispatch()` 를 사용하여 action creators 를 바인딩하는 몇가지 방법이 있습니다. 아래와 같은 몇가지 옵션들이 있습니다.
+
+```js
+const mapDispatchToProps = (dispatch) => ({
+ action: () => dispatch(action())
+})
+```
+
+```js
+const mapDispatchToProps = (dispatch) => ({
+ action: bindActionCreators(action, dispatch)
+})
+```
+
+```js
+const mapDispatchToProps = { action }
+```
+
+세 번째 옵션은 첫 번째 옵션의 축약형 입니다.
+
+173. ### What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?
+#### (mapStateToProps() 그리고 mapDispatchToProps() 에서 ownProps 매개변수는 어떻게 사용하나요?)
+
+만약 `ownProps` 매개변수가 명시되었다면, React Redux 는 component 로 전달된 props 를 연결된 함수들로 전달합니다.
+
+만약 connected component 를 사용한다면: 
+
+```jsx
+import ConnectedComponent from './containers/ConnectedComponent';
+
+<ConnectedComponent user={'john'} />
+```
+
+`mapStateToProps()` 그리고 `mapDispatchToProps()` 함수 안에서의 `ownProps` 는 객체입니다.
+
+```js
+{ user: 'john' }
+```
+
+이 객체를 사용하여 무엇을 반환할지 결정할 수 있습니다.
+
+174. ### How to structure Redux top level directories?
+#### (어떻게 Redux 의 상위 레벨 디렉토리를 구성하나요?)
+
+대부분의 application 들은 아래와 같은 상위 디렉토리를 가집니다.
+
+- Components: Redux 를 알지못하는 멍청한 component 들
+- Containers: Redux 와 연결된 똑똑한 component 들
+- Actions: 파일의 이름이 app의 일부와 일치하는 모든 action creator 들 
+- Reducers: 파일의 이름이 state key 와 일치하는 모든 reducer 들
+- Store: store 초기화 설정
+
+이 폴더 구조는 중소의 app 에 적합합니다.
