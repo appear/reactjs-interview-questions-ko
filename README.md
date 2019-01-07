@@ -3288,3 +3288,14 @@ import ConnectedComponent from './containers/ConnectedComponent';
 - Store: store 초기화 설정
 
 이 폴더 구조는 중소의 app 에 적합합니다.
+
+175. ### What is redux-saga?
+#### (react-sage 는 무엇인가요?)
+`redux-saga` 는  side effects (데이터 가져오기 같은 비동기적인 작업이나 browser cache 에 접근하는 것등) 을 React/Redux applications 에서 조금 더 쉽게 만들어주는 라이브러리입니다.
+
+NPM 에서 사용할 수 있습니다.
+
+```shell
+$ npm install --save redux-saga
+```
+
