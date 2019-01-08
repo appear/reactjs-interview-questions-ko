@@ -3299,3 +3299,27 @@ NPM 에서 사용할 수 있습니다.
 $ npm install --save redux-saga
 ```
 
+176. ### What is the mental model of redux-saga?
+#### (redux-sage 의 근본적 모델은 무엇인가요?)
+sage는 application 안에 분리된 쓰레드이고, side effects 를 위한 단독적인 책임을 가지고있습니다.
+`redux-saga` 는 redux 미들웨어입니다. 메인 application 에서 Redux actions 과 함께 쓰레드를 시작, 중지, 취소 할 수 있으며 전체의 Redux application 상태에 접근할 수 있고 Redux actions 도 전달할 수 있습니다.
+
+177. ### What are the differences between call() and put() in redux-saga?
+#### (redux-saga 에서 call() 과 put() 의 차이점은 무엇인가요?)
+`call()` 과 `put()` 둘 다 effect 를 만드는 함수입니다. `call()` 함수는 middleware 가 promise 를 어떻게 호출할지에 대한 설명하는 effect 을 생성하는데 사용됩니다. `put()` 함수는 store 에 action 을 통하여 전달하도록 미들웨어에게 가르치는 effect 를 생성합니다.
+
+특정한 사용자의 데이터를 가져오는 예제를 보고 effects 가 어떻게 동작하는지 봅시다.
+
+```js
+function* fetchUserSaga(action) {
+  // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.
+  // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable
+  const userData = yield call(api.fetchUser, action.userId)
+
+  // Instructing middleware to dispatch corresponding action.
+  yield put({
+    type: 'FETCH_USER_SUCCESS',
+    userData
+  })
+}
+```
