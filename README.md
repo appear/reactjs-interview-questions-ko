@@ -335,7 +335,7 @@ React에서 props 의 목적은 아래와 같은 기능을 component에 제공�
 <Element reactProp = "1" />
 ```
 
-이 "reactProp" (또는 사용자가 찾은 정의한) props는 React를 사용하여 생성된 ccomponent에서 접근이 가능하고, React의 native props 영역에 포함된 속성이 됩니다.
+이 "reactProp" (또는 사용자가 찾은 정의한) props는 React를 사용하여 생성된 component에서 접근이 가능하고, React의 native props 영역에 포함된 속성이 됩니다.
 
 ```js
 props.reactProp;
