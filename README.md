@@ -3459,3 +3459,16 @@ function* fetchUserSaga(action) {
   })
 }
 ```
+
+### 178. What is Redux Thunk?
+#### (Redux Thunk 는 무엇인가요?)
+
+Redux Thunk 는 action 대신 함수를 반환하는 action 생성자를 작성 할 수 있는 미들웨어입니다.
+Thunk 는 action dispatch 를 지연 시키거나, 특정한 조건이 성립되는 경우에만 dispatch 하도록 할 수 있습니다. 내부 함수는 매개변수로 store method dispatch 그리고 getState 를 받습니다. 
+
+### 179. What are the differences between redux-saga and redux-thunk?
+#### (redux-saga 와 redux-thunk 의 차이점은 무엇인가요 ?)
+
+Redux Thunk 와 Redux Saga 는 모두 side effect 를 방지합니다. 
+대부분의 시나리오에서 Thunk 는 Promise 를 사용하여 처리하고 Saga 는 Generators 를 사용합니다. Promise 는 많은 개발자들에게 친숙하여 Thunk 는 다루기 쉽고, Sagas / Generator 는 매우 강력하지만 러닝커브가 있습니다. 
+두 미들웨어 모두 공존 할 수 있습니다. Thunk 로 시작하여도 만약 Saga 가 필요하다면 도입 할 수 있습니다.
