@@ -12,7 +12,7 @@
 | No. | Questions |
 |---- | ---------
 ||**Core ReactJS**| |
-|1  | [What is ReactJS?](#what-is-reactjs) |
+|1  | [What is ReactJS?](#1.what-is-reactjs) |
 |2  | [What are the major features of ReactJS?](#what-are-the-major-features-of-reactjs)|
 |3  | [What is JSX?](#what-is-jsx)|
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)|
