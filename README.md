@@ -3488,3 +3488,33 @@ Thunk 는 action dispatch 를 지연 시키거나, 특정한 조건이 성립되
 Redux Thunk 와 Redux Saga 는 모두 side effect 를 방지합니다. 
 대부분의 시나리오에서 Thunk 는 Promise 를 사용하여 처리하고 Saga 는 Generators 를 사용합니다. Promise 는 많은 개발자들에게 친숙하여 Thunk 는 다루기 쉽고, Sagas / Generator 는 매우 강력하지만 러닝커브가 있습니다. 
 두 미들웨어 모두 공존 할 수 있습니다. Thunk 로 시작하여도 만약 Saga 가 필요하다면 도입 할 수 있습니다.
+
+### What is Redux DevTools?
+#### (Redux DevTools 은 무엇인가요?)
+
+Redux DevTools 은 Redux 를 위한 hot reload 기능을 가진 시간 여행 환경의 실시간 편집이 가능한 툴입니다. 액션을 다시 재현하거나 UI 를 사용자정의에 맞게 만들 수 있습니다.
+Redux DevTools 을 프로젝트에 설치하여 사용하고 싶지 않다면 Chrome 또는 Firefox 용 Extension 사용을 고려 할 수 있습니다.
+
+### What are the features of Redux DevTools?
+#### (Redux DevTools 의 목적은 무엇인가요?)
+
+1. 모든 상태와 액션을 검사 할 수 있습니다.
+2. action 을 취소하여 작업을 되돌릴 수 있습니다.
+3. reducer 의 코드를 변경한다면 각각의 준비된 action 은 다시 평가됩니다. 
+4. action 에서 어떤 일이 일어났는지, 오류가 발생하였는지 알 수 있습니다.
+5. `persistState()` store enhancer 을 사용하면 page reload 에서 debug session 을 지속할 수 있습니다.
+
+### What are Redux selectors and why to use them?
+#### (Redux selectors 는 무엇이고 왜 사용해야하나요?)
+
+Selectors 는 Redux state 를 인수로받고 데이터를 반환하여 component 로 전달하는 함수입니다.
+
+예를 들어, 사용자의 세부정보를 얻으려면:
+
+```js
+const getUserData = state => state.user.data
+```
+
+### What is Redux Form?
+#### (Redux Form 은 무엇인가요?)
+
