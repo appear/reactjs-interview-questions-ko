@@ -213,7 +213,7 @@
 웹 및 모바일 앱의 Layer 를 다루는데 사용됩니다. 리액트는 페이스북의 소프트웨어 엔지니어 [Jordan Walke](https://twitter.com/jordwalke) 에 의해 만들어졌습니다.  
 리액트는 2011 년 페이스북 뉴스피드에 발표되었고, 2012년 인스타그램에 처음 구축되었습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 2. What are the major features of ReactJS?
 
@@ -226,7 +226,7 @@ React 의 주요 특징은 아래와 같습니다.
 - 단방향 데이터 흐름 또는 데이터 바인딩을 따릅니다.
 - UI 구성 요소를 재사용할 수 있도록 개발할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 3. What is JSX?
 
@@ -246,7 +246,7 @@ render() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 4. What is the difference between Element and Component?
 
@@ -290,7 +290,7 @@ function Button({ onLogin }) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 5. How to create components in ReactJS?
 
@@ -321,7 +321,7 @@ class Greeting extends React.Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 6. When to use a Class Component over a Functional Component?
 
@@ -329,7 +329,7 @@ class Greeting extends React.Component {
 
 Component 에서 state 또는 [life cycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) 를 필요로 한다면 Class component를 사용하고 그렇지 않다면 Functional component를 사용할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 7. What are Pure Components?
 
@@ -368,7 +368,7 @@ class User extends React.Component {
 
 ![state](./public/state.jpg)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 9. What is props in ReactJS?
 
@@ -394,7 +394,7 @@ React에서 props 의 목적은 아래와 같은 기능을 component에 제공�
 props.reactProp;
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 10. What is the difference between state and props?
 
@@ -403,7 +403,7 @@ props.reactProp;
 props와 state는 모두 JavaScript 객체입니다. 두가지 다 렌더링 결과에 영향을 주는 정보를 가지고 있지만, component 와 관련된 기능면에서 차이가 있습니다.  
 props는 함수 매개변수와 같이 component 요소로 전달됩니다. state 는 component 안에서 관리되고 사용할 변수 선언과 비슷합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 11. Why should not we update the state directly?
 
@@ -425,7 +425,7 @@ this.setState({message: ‘Hello World’});
 
 Note: 상태를 할당할 수 있는 곳은 constructor 가 유일합니다. (외부에서 다이렉트로 state를 할당하지 말라는 뜻 같습니다.)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 12. What is the purpose of callback function as an argument of setState?
 
@@ -441,7 +441,7 @@ setState({ name: "sudheer" }, () =>
 
 #### Note: callback 함수를 이용하는 것보단 lifecycle 메서드를 이용하는 것이 좋습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 13. What is the difference of event handling between HTML and React?
 
@@ -476,7 +476,7 @@ function handleClick(e) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 14. How to bind methods or event handlers in JSX callbacks?
 
@@ -519,7 +519,7 @@ handleClick = () => {
 
 Note: 만약 callback 이 하위 component 에 props 로 전달되면 component는 re-rendering 될 수 있습니다. 이럴 경우 성능을 고려하였을때 1번 또는 2번의 방식을 사용하는 것이 좋습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 15. How to pass a parameter to an event handler or callback?
 
@@ -537,7 +537,7 @@ arrow function 으로 감싸서 event handler 에게 매개변수를 전달할 �
 <button onClick="{this.handleClick.bind(this," id)} />
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 16. What are synthetic events in ReactJS?
 
@@ -545,7 +545,7 @@ arrow function 으로 감싸서 event handler 에게 매개변수를 전달할 �
 
 [synthetic event](https://reactjs.org/docs/events.html) 는 브라우저의 기본 이벤트를 감싼 cross-browser wrapper 입니다. API는 모든 브라우저에서 동작한다는 점을 제외하면, stopPropagation () 및 preventDefault () 를 포함해 브라우저 네이티브 이벤트와 같은 인터페이스를 가지고 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 17. What is inline conditional expressions?
 
@@ -561,7 +561,7 @@ arrow function 으로 감싸서 event handler 에게 매개변수를 전달할 �
 </h2>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 18. What is Key and benefit of using it in lists?
 
@@ -589,7 +589,7 @@ Note:
 
 list 에 key 가 없으면 콘솔에 경고가 표시됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 19. What is the use of create refs?
 
@@ -599,7 +599,7 @@ list 에 key 가 없으면 콘솔에 경고가 표시됩니다.
 
 최근에 추가된 접근 방식입니다. [create ref](https://reactjs.org/docs/refs-and-the-dom.html)는 element 요소에 대한 참조를 반환하는데 사용할 수 있습니다. DOM의 요소나 compoennt 에 직접 접근해야 될 경우 유용할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 20. How to create refs?
 
@@ -646,7 +646,7 @@ class SearchBar extends Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 21. What are forward refs?
 
@@ -666,7 +666,7 @@ const ref = React.createRef();
 <ButtonElement ref={ref}>{"Forward Ref"}</ButtonElement>;
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 22. Which is preferred option with in callback refs and findDOMNode()?
 
@@ -702,7 +702,7 @@ class MyComponent extends Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 23. Why are String Refs legacy?
 
@@ -733,7 +733,7 @@ class MyComponent extends Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 24. What is Virtual DOM?
 
@@ -741,7 +741,7 @@ class MyComponent extends Component {
 
 가상돔이란 in-memory 즉 Real DOM의 메모리상에서의 표현입니다. UI의 표현은 메모리에 유지되고 Render함수와 화면을 표시하는 사이에 Real DOM 과 동기화됩니다. 이런 단계를 reconciliation 라고 부릅니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 25. How Virtual DOM works?
 
@@ -761,7 +761,7 @@ class MyComponent extends Component {
 
 ![vdom](./public/vdom3.png)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 26. What is the difference between Shadow DOM and Virtual DOM?
 
@@ -769,7 +769,7 @@ class MyComponent extends Component {
 
 Shadow DOM은 web component의 scope 및 CSS scope 지정을 위해 설계된 web browser 기술입니다. Virtual DOM 은 browser API를 기반으로 JS 라이브러리에서 구현되는 개념입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 27. What is React Fiber?
 
@@ -777,7 +777,7 @@ Shadow DOM은 web component의 scope 및 CSS scope 지정을 위해 설계된 we
 
 React Fiber란 React v16 에서 핵심 알고리즘을 재구현 한것입니다. React Fiber 의 목표는 애니메이션, 레이아웃, 제스처, 작업을 일시정지하고, 중단 또는 재사용, 여러 유형의 업데이트 우선순위 조절, 동시성등 여러 기본사항에 대한 성능을 높이는 것 입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 28. What is the main goal of React Fiber?
 
@@ -787,7 +787,7 @@ React Fiber 의 목표는 애니메이션, 레이아웃, 제스처등의 성능�
 
 **incremental rendering:** 렌더링 작업을 청크로 쪼개고 여러 프레임으로 분산 시키는 기능입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 29. What are controlled components?
 
@@ -803,7 +803,7 @@ handleChange(event) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 30. What are uncontrolled components?
 
@@ -842,7 +842,7 @@ class UserProfile extends React.Component {
 
 대부분의 경우 forms 을 제어할 때는 controlled component 를 사용하는 것을 추천합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 31. What is the difference between createElement and cloneElement?
 
@@ -850,7 +850,7 @@ class UserProfile extends React.Component {
 
 UI 의 object representation으로 사용될 react element를 만들기 위해 JSX element 는 React.createElement() 함수로 변환됩니다. cloneElement는 element 를 복사하고 새로운 props 를 전달하는데 사용됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 32. What is Lifting State Up in React?
 
@@ -858,7 +858,7 @@ UI 의 object representation으로 사용될 react element를 만들기 위해 J
 
 여러 component 들이 동일한 변경 데이터를 공유해야하는 경우 가까운 부모 component 로 state를 올리는 것이 좋습니다. 즉, 두개의 자식 component가 부모에 있는 동일한 데이터를 공유할 때 두개의 자식 component 들은 local state를 유지하는 대신, 부모로 state를 올려야 합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 33. What are the different phases of component lifecycle?
 
@@ -873,7 +873,7 @@ UI 의 object representation으로 사용될 react element를 만들기 위해 J
 
 ![lifecycle](./public/phases.png)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 34. What are the lifecycle methods of React?
 
@@ -887,7 +887,7 @@ UI 의 object representation으로 사용될 react element를 만들기 위해 J
 - componentDidUpdate: 주로 props 나 state 변경에 대한 response 로 DOM을 업데이트할 때 사용됩니다.
 - componentWillUnmount: 네트워크 요청을 취소하거나, component와 관련된 모든 event listeners 를 제거하는데 사용됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 35. What are Higher-Order components?
 
@@ -907,7 +907,7 @@ HOC는 아래와 같은 많은 use cases 에 사용할 수 있습니다.
 - State abstraction and manipulation
 - Props manipulation
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 36. How to create props proxy for HOC component?
 
@@ -932,7 +932,7 @@ function HOC(WrappedComponent) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 37. What is context?
 
@@ -945,7 +945,7 @@ Context 는 모든 레벨에 수동으로 props를 전달하지 않고 component
 const { Provider, Consumer } = React.createContext(defaultValue);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 38. What is children prop?
 
@@ -972,7 +972,7 @@ ReactDOM.render(
 );
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 39. How to write comments in ReactJS?
 
@@ -999,7 +999,7 @@ ReactJS / JSX 에서의 주석은 JavaScript와 유사합니다. 한 줄 및 여
 </div>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 40. What is the purpose of using super constructor with props argument?
 
@@ -1042,7 +1042,7 @@ class MyComponent extends React.Component {
 
 위의 code snippets은 this.props의 동작이 constructor 만 다른 것을 보여줍니다. 생성자 밖에서의 동작은 동일합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 41. What is reconciliation?
 
@@ -1050,7 +1050,7 @@ class MyComponent extends React.Component {
 
 Component 의 props 또는 state가 변경될 때 React는 새로 반환된 component를 이전에 rendered 된 component와 비교하여 DOM update가 필요한지 결정합니다. 두개의 component가 같지 않을때 React는 DOM을 update합니다. 이를 프로세스 reconciliation 라고합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 42. How to set state with a dynamic key name?
 
@@ -1064,7 +1064,7 @@ handleInputChange(event) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 43. What would be the common mistake of function being called every time the component renders?
 
@@ -1088,7 +1088,7 @@ render() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 44. Why is it necessary to capitalize component names?
 
@@ -1096,7 +1096,7 @@ render() {
 
 Component 들은 DOM element가 아니기 때문에 대문자 표기가 필요합니다. component들은 constructors입니다. 또한 JSX 에서의 소문자 태그 이름은 component가 아닌 HTML 요소를 나타내기 때문입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 45. Why React uses className over class attribute?
 
@@ -1110,7 +1110,7 @@ render() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 46. What are fragments?
 
@@ -1144,7 +1144,7 @@ render() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 47. Why fragments are better than container divs?
 
@@ -1154,7 +1154,7 @@ render() {
 2. Flexbox 나 CSS Grid과 같은 CSS 메커니즘에는 특별한 부모 - 자식 관계를 가지고 있습니다. 중간에 div 들을 추가하게 된다면 layout을 유지하기 어려워집니다.
 3. DOM Inspector은 덜 복잡합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 48. What are portals in React?
 
@@ -1168,7 +1168,7 @@ ReactDOM.createPortal(child, container);
 
 첫 번째 인자는 렌더링 가능한 React 하위요소 (element, string, fragment) 입니다. 두 번째 인자는 DOM element 입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 49. What are stateless components?
 
@@ -1178,7 +1178,7 @@ Component의 동작과 상태가 독립적이라면 stateless component 를 구�
 lifecycle hook을 사용해야하는 경우가 아니라면 function component를 사용할 수 있습니다. function component를 사용한다면 많은 이점이 있습니다.
 쓰기, 이해 그리고 테스트가 빠르고 쉽습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 50. What are stateful components?
 
@@ -1199,7 +1199,7 @@ class App extends Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 51. How to apply validation on props in React?
 
@@ -1246,7 +1246,7 @@ class User extends React.Component {
 
 Note: React v15.5 에서 PropType은 React.PropTypes 에서 prop-types 라이브러리로 옮겨졌습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 52. What are the advantages of React?
 
@@ -1258,7 +1258,7 @@ Note: React v15.5 에서 PropType은 React.PropTypes 에서 prop-types 라이브
 4. 오직 view library 이기 때문에 다른 프레임워크들 (Angular, Backbone)과 손쉽게 통합 할 수 있습니다.
 5. Jest 와 같은 도구를 사용하여 단위 및 통합테스트를 쉽게 작성할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 53. What are the limitations of React?
 
@@ -1270,7 +1270,7 @@ Note: React v15.5 에서 PropType은 React.PropTypes 에서 prop-types 라이브
 4. 인라인 템플릿 및 JSX를 사용하면 코드가 복잡해집니다.
 5. 과도한 엔지니어링 또는 boilerplate 로 이어지는 작은 components 들이 너무 많습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 54. What are error boundaries in React v16?
 
@@ -1312,7 +1312,7 @@ class ErrorBoundary extends React.Component {
 </ErrorBoundary>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 55. How error boundaries handled in React v15?
 
@@ -1320,7 +1320,7 @@ class ErrorBoundary extends React.Component {
 
 React v15 에서는 unstable_handleError 메서드를 사용하여 error boundaries 에 대한 기본적인 지원을 했습니다. React v16에서 componentDidCatch로 이름이 변경되었습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 56. What are the recommended ways for static type checking?
 
@@ -1329,7 +1329,7 @@ React v15 에서는 unstable_handleError 메서드를 사용하여 error boundar
 일반적으로 우리는 React application 에서 타입 검사를 하기 위해 PropTypes library (React.PropTypes를 React v15.5 부터는 prop-types package 로 옮겼습니다)를 사용합니다.
 대규모의 코드 베이스에서는 compile time 에서 타입 체크를 하고 자동 완성 기능을 제공해주는 Flow 나 TypeScript 와 같은 static type checkers 를 이용하는 것이 좋습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 57. What is the use of react-dom package?
 
@@ -1344,7 +1344,7 @@ React-dom 패키지는 App의 최상위 레벨에서 사용할 수 있는 DOM-sp
 - findDOMNode()
 - createPortal()
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 58. What is the purpose of render method of react-dom?
 
@@ -1359,7 +1359,7 @@ ReactDOM.render(element, container[, callback])
 
 만약 optional callback 이 제공된다면, callback은 component 가 렌더링되거나 업데이트 된 후에 실행됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 59. What is ReactDOMServer?
 
@@ -1387,7 +1387,7 @@ app.get("/", (req, res) => {
 });
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 60. How to use innerHTML in React?
 
@@ -1409,7 +1409,7 @@ function MyComponent() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 61. How to use styles in React?
 
@@ -1430,7 +1430,7 @@ function HelloWorldComponent() {
 
 Style의 key는 Javascript DOM Node (예 : node.style.backgroundImage)의 속성에 접근하는 것과 일관되게 하기 위해 camelCased 를 사용합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 62. How events are different in React?
 
@@ -1441,7 +1441,7 @@ React element 에서의 이벤트 처리는 몇가지 문법상 차이점이 있
 - React 이벤트 핸들러는 소문자보다는 camelCase 를 사용합니다.
 - JSX 에서는 문자열이 아닌 이벤트 핸들러를 통해 function 을 전달합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 63. What will happen if you use setState() in constructor?
 
@@ -1450,7 +1450,7 @@ React element 에서의 이벤트 처리는 몇가지 문법상 차이점이 있
 setState() 를 사용할 때 객체 상태가 할당되고 또한 component 와 모든 자식들을 재렌더링 합니다.
 이런 에러를 봤을겁니다. `Can only update a mounted or mounting component`. 그래서 우리는 this.state 를 사용하여 constructor 내부의 변수를 초기화 해야합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 64. What is the impact of indexes as keys?
 
@@ -1474,7 +1474,7 @@ React element 가 추적할 수 있도록 key 는 안정적, 예측가능, 고�
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 65. Is it good to use setState() in componentWillMount() method?
 
@@ -1497,7 +1497,7 @@ componentDidMount() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 66. What will happen if you use props in initial state?
 
@@ -1543,7 +1543,7 @@ class MyComponent extends React.Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 67. How do you conditionally render components?
 
@@ -1573,7 +1573,7 @@ const MyComponent = ({ name, address }) => (
 );
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 68. Why we need to be careful when spreading props on DOM elements?
 
@@ -1592,7 +1592,7 @@ const ComponentB = ({ isDisplay, ...domProps }) => (
 );
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 69. How you use decorators in React?
 
@@ -1622,7 +1622,7 @@ const setTitle = title => WrappedComponent => {
 
 NOTE: Decorators 는 ES7 에 포함되지 않았습니다. 현재 stage 2 에 제안되어 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 70. How do you memoize a component?
 
@@ -1645,7 +1645,7 @@ const Consumer = () => {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 71. How you implement Server Side Rendering or SSR?
 
@@ -1664,7 +1664,7 @@ ReactDOMServer.renderToString(<App />);
 이 method 는 HTML 을 문자열로 내보내고, 문자열은 서버 응답의 일부로 페이지 본문 내부에 배치 할 수 있습니다.
 client side 에서 React 는 이미 렌더링된 content 를 감지하여 중단된 부분을 원활히 처리합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 72. How to enable production mode in React?
 
@@ -1675,7 +1675,7 @@ propType 의 유효성 검사 및 추가적인 경고 같은 것들을 제거할
 
 production 모드와는 별도로 코드를 minify 하면 Uglify 의 dead-code 의 제거와 주석을 제거하여 bundle 크기를 줄일 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 73. What is CRA and its benefits?
 
@@ -1699,7 +1699,7 @@ $ npm run test
 $ npm start
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 74. What is the lifecycle methods order in mounting?
 
@@ -1712,7 +1712,7 @@ lifecycle 메서드는 component 의 instance 가 생성되어 DOM에 삽입 될
 - render()
 - componentDidMount()
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 75. What are the lifecycle methods going to be deprecated in React v16?
 
@@ -1726,7 +1726,7 @@ lifecycle 메서드는 component 의 instance 가 생성되어 DOM에 삽입 될
 
 React v16.3 부터는 UNSAFE\_가 prefix 붙고, prefix 가 없는 버전은 React v17 에서 제거됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 76. What is the purpose of getDerivedStateFromProps() lifecycle method?
 
@@ -1745,7 +1745,7 @@ class MyComponent extends React.Component {
 
 이 lifecycle 메서드는 componentDidUpdate() 와 함께 componentWillReceiveProps() 의 사용 사례에 적용할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 77. What is the purpose of getSnapshotBeforeUpdate() lifecycle method?
 
@@ -1764,7 +1764,7 @@ class MyComponent extends React.Component {
 
 이 lifecycle 메서드는 componentDidUpdate()와 함께 componentWillUpdate () 의 사용 사례에 적용할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 78. What is the difference between createElement() and cloneElement() methods
 
@@ -1773,7 +1773,7 @@ class MyComponent extends React.Component {
 JSX 에서 React element 는 UI element 를 타내는 React.createElement() 변환됩니다.  
 React.cloneElement ()는 element 를 복제하고 새로운 props를 전달하는데 사용됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 79. What is the recommended way for naming components?
 
@@ -1798,7 +1798,7 @@ export default class TodoApp extends React.Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 80. What is the recommended ordering of methods in component class?
 
@@ -1821,7 +1821,7 @@ export default class TodoApp extends React.Component {
 - optional render methods like renderNavigation() or renderProfilePicture()
 - render()
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 81. What is a switching component?
 
@@ -1856,7 +1856,7 @@ Page.propTypes = {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 82. Why we need to pass a function to setState()?
 
@@ -1886,7 +1886,7 @@ this.setState((prevState, props) => ({
 // this.state.count === 3 as expected
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 83. What is strict mode in React?
 
@@ -1922,7 +1922,7 @@ function ExampleApplication() {
 - 예상치 못한 사이드 이펙트 감지
 - legacy context API 감지
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 84. What are React Mixins?
 
@@ -1940,7 +1940,7 @@ const Button = React.createClass({
 });
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 85. Why is isMounted() an anti-pattern and what is the proper solution?
 
@@ -1961,7 +1961,7 @@ component의 마운트가 해제된 후에 reference 를 가지고 있다고 생
 이러한 상황은 component가 데이터를 기다리고 데이터가 도착하기전 마운트가 해제될 때, 콜백으로 인해 많이 발생됩니다.
 콜백은 마운트가 해제되기전에 componentWillUnmount 단계에서 취소되어야합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 86. What are the Pointer Events supported in React?
 
@@ -1984,7 +1984,7 @@ React DOM 에서는 다음과 같은 event 를 사용할 수 있습니다.
 - onPointerOver
 - onPointerOut
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 87. Why should component names start with capital letter?
 
@@ -2014,7 +2014,7 @@ export default myComponent;
 import MyComponent from "./MyComponent";
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 88. Are custom DOM attributes supported in React v16?
 
@@ -2043,7 +2043,7 @@ React v16 에서 알 수 없는 속성은 DOM 에 포함됩니다.
 
 이 기능은 브라우저 별로 비표준 속성을 제공하고, 새로운 DOM API 를 시도, 다른 라이브러리와 같이 사용할 때 유용합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 89. What is the difference between constructor and getInitialState?
 
@@ -2078,7 +2078,7 @@ const MyComponent = React.createClass({
 
 **Note**: React.createClass() 는 이제 사용되지 않고, React v16 에서 제거됩니다. 대신 JS class 를 사용하세요
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 90. Can you force a component to re-render without calling setState?
 
@@ -2093,7 +2093,7 @@ component.forceUpdate(callback);
 
 forceUpdate() 의 사용은 피하고 render() 안의 this.props 와 this.state 는 읽는 용도로 사용하는 것이 좋습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 91. What is the difference between super() and super(props) in React using ES6 classes?
 
@@ -2125,7 +2125,7 @@ class MyComponent extends React.Component {
 
 constructor() 의 밖에서의 this.props 에는 같은 값이 표시됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 92. How to loop inside JSX?
 
@@ -2154,7 +2154,7 @@ for loop 를 사용하여 반복할 수 없습니다.
 JSX 태그는 함수 호출로 변환되어지기 떄문에 표현식 안에서 JS 표현법을 사용할 수 없습니다.
 이것은 stage 1 에 제안되어 변경되어질 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 93. How do you access props in attribute quotes?
 
@@ -2178,7 +2178,7 @@ React (또는 JSX) 는 속성 값 안에 써넣은 값은 지원되지 않습니
 <img className="image" src={`images/${this.props.image}`} />
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 94. What is React proptype array with shape?
 
@@ -2195,7 +2195,7 @@ ReactComponent.propTypes = {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 95. How conditionally apply class attributes?
 
@@ -2219,7 +2219,7 @@ ReactComponent.propTypes = {
 <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 96. What is the difference between React and ReactDOM?
 
@@ -2229,7 +2229,7 @@ React package 에는 React.createElement (), React.Component, React.Children 및
 이런 기능들은 component 를 구축하는데 필요한 helpers 로 생각할 수 있습니다.
 react-dom package 에는 ReactDOM.render () 가 포함되어있고, react-dom/server 에는 ReactDOMServer.renderToString() 과 ReactDOMServer.renderToStaticMarkup() 포함되어있어 서버사이드 렌더링을 지원합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 97. Why ReactDOM is separated from React?
 
@@ -2241,7 +2241,7 @@ React-native, Reaction-Art, Reaction-Canvas, React-3 등 패키지의 일부를 
 React 가 렌더링할 수 있는 많은 환경들을 만들기 위해, React 팀은 React 와 React-dom 을 분리할 계획을 세웠습니다.
 이것은 웹 버전의 React 와 React native 사이의 공유할 수 있는 component 를 작성하는 방법을 개척합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 98. How to use React label element?
 
@@ -2261,7 +2261,7 @@ for 는 JS 의 예약된 키워드입니다, 대신 htmlFor 를 사용하세요
 <input type={'text'} id={'user'} />
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 99. How to combine multiple inline style objects?
 
@@ -2283,7 +2283,7 @@ React Native 를 사용하고 있다면 배열 표기법을 사용할 수 있습
 </button>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 100. How to re-render the view when the browser is resized?
 
@@ -2320,7 +2320,7 @@ class WindowDimensions extends React.Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 101. What is the difference between setState() and replaceState() methods?
 
@@ -2330,7 +2330,7 @@ setState() 를 사용하면 이전 state 와 다음 state 가 병합됩니다. r
 이전의 key 들을 모두 제거해야되는 경우가 아니라면 보통 setState() 가 사용됩니다.
 replaceState()를 사용하는 대신 setState()에서 state 를 flase/null 로 설정할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 102. How to listen to state changes?
 
@@ -2344,7 +2344,7 @@ componentWillUpdate(object nextProps, object nextState)
 componentDidUpdate(object prevProps, object prevState)
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 103. What is the recommended approach of removing an array element in React state?
 
@@ -2362,7 +2362,7 @@ removeItem(index) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 104. Is it possible to use React without rendering HTML?
 
@@ -2400,7 +2400,7 @@ render() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 105. How to pretty print JSON with React?
 
@@ -2420,7 +2420,7 @@ class User extends React.Component {
 React.render(<User />, document.getElementById("container"));
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 106. Why you can't update props in React?
 
@@ -2429,7 +2429,7 @@ React.render(<User />, document.getElementById("container"));
 React 의 철학은 props 는 immutable(불변) 이어야하고 top-down (부모 -> 자식) 방식입니다.
 부모는 모든 props 값을 자식에게 보낼 수 있지만, 자식은 받은 props 를 변경할 수 없습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 107. How to focus an input element on page load?
 
@@ -2459,7 +2459,7 @@ class App extends React.Component {
 ReactDOM.render(<App />, document.getElementById("app"));
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 108. What are the possible ways of updating objects in state?
 
@@ -2492,7 +2492,7 @@ this.setState(prevState => ({
 }));
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 109. Why function is preferred over object for setState()?
 
@@ -2520,7 +2520,7 @@ this.setState((prevState, props) => ({
 }));
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 110. How can we find the version of React at runtime in the browser?
 
@@ -2537,7 +2537,7 @@ ReactDOM.render(
 );
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 111. What are the approaches to include polyfills in your create-react-app?
 
@@ -2563,7 +2563,7 @@ import "core-js/fn/number/is-nan";
 
 위의 스크립트에서 Array.prototype.includes 는 기본 스펙에 포함되지 않았기 때문에 기능을 요청했습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 112. How to use https instead of http in create-react-app?
 
@@ -2579,7 +2579,7 @@ import "core-js/fn/number/is-nan";
 
 또는 `set HTTPS=true && npm start` 을 실행하세요
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 113. How to avoid using relative path imports in create-react-app?
 
@@ -2593,7 +2593,7 @@ NODE_PATH = src / app;
 
 설정후 개발서버를 재시작 해주세요. 상대 경로없이 src/app 안에 있는 모든것을 import 할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 114. How to add Google Analytics for React Router?
 
@@ -2608,7 +2608,7 @@ history.listen(function(location) {
 });
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 115. How to update a component every second?
 
@@ -2626,7 +2626,7 @@ componentWillUnmount() {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 116. How do you apply vendor prefixes to inline styles in React?
 
@@ -2644,7 +2644,7 @@ React 에서는 [vendor prefixes](https://developer.mozilla.org/en-US/docs/Gloss
 />
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 117. How to import and export components using React and ES6?
 
@@ -2665,7 +2665,7 @@ export default class MyProfile extends React.Component {
 
 export 를 사용하면 MyProfile 이 모듈로 내보내집니다. 다른 component 의 이름을 사용하지 않아도 동일한 파일을 import 할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 118. Why React component names must begin with a capital letter?
 
@@ -2677,7 +2677,7 @@ JSX 에서 소문자 태그 이름은 HTML 태그로 간주됩니다. 그러나 
 - `<obj.component />` compiles to React.createElement(obj.component)
 - `<Component />` compiles to React.createElement(Component)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 119. Why is a component constructor called only once?
 
@@ -2685,7 +2685,7 @@ JSX 에서 소문자 태그 이름은 HTML 태그로 간주됩니다. 그러나 
 
 React의 reconciliation 알고리즘에서는 custom component 가 다음 렌더링의 같은 위치에 나타나면 이전 component 와 동일하므로 인스턴스를 새로 만들지 않고 다시 사용한다고 가정합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 120. How to define constants in React?
 
@@ -2701,7 +2701,7 @@ class MyComponent extends React.Component {
 
 static 필드는 statge 3 의 제안된 부분입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 121. How to programmatically trigger click event in React?
 
@@ -2724,7 +2724,7 @@ callback 을 통한 ref prop 를 사용하여 `HTMLInputElement` 객체에 대�
 this.inputElement.click();
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 122. Is it possible to use async/await in plain React?
 
@@ -2732,7 +2732,7 @@ this.inputElement.click();
 
 React 에서 async/await 을 사용하고 싶다면 Babel 과 transform-async-to-generator 플러그인이 필요합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 123. What are the common folder structures for React?
 
@@ -2787,7 +2787,7 @@ components/
 └─ ProfileHeader.css
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 124. What are the popular packages for animation?
 
@@ -2795,7 +2795,7 @@ components/
 
 React 생태계에서 인기있는 애니메이션 패키지는 React Transition Group과 React Motion 입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 125. What is the benefit of styles modules?
 
@@ -2822,7 +2822,7 @@ export const space = [0, 8, 16, 32, 64];
 import { space, colors } from './styles'
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 126. What are the popular React-specific linters?
 
@@ -2834,7 +2834,7 @@ React 에서 대부분 사용하는 npm 패키지 중 하나는 `eslint-plugin-r
 다른 인기있는 플러그인은 `eslint-plugin-jsx-a11y` 이며, 접근성을 통해 문제를 해결하는데 도움을 줍니다.
 JSX 는 일반적인 HTML 문법과 약간 다르게 제공하므로, `alt` text 그리고 `tabindex` 같은 문제는 플러그인으로 선택되지 않습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 127. How to make AJAX call and in which component lifecycle methods should I make an AJAX call?
 
@@ -2890,7 +2890,7 @@ class MyComponent extends React.Component {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 128. What are render props?
 
@@ -2907,7 +2907,7 @@ React Router 와 DownShift 라이브러리는 이 패턴을 사용합니다.
 
 ## React Router
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 129. What is React Router?
 
@@ -2916,7 +2916,7 @@ React Router 와 DownShift 라이브러리는 이 패턴을 사용합니다.
 React Router 는 React 에 구현된 강력한 routing 라이브러리 입니다.
 페이지에 보여지는 내용과 URL 을 동기화된 상태로 유지해주고, 애플리케이션에 새로운 화면과 흐름을 추가할 수 있게 도와줍니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 130. How React Router is different from history library?
 
@@ -2925,7 +2925,7 @@ React Router 는 React 에 구현된 강력한 routing 라이브러리 입니다
 React router 는 history 라이브러리를 감싼 래퍼입니다. React router는 브라우저의 `window.history` 과 상호작용을 하고, 브라우저 및 hash history 을 다룹니다.
 또 모바일 앱 개발 (React Native) 및 Node 의 unit testing 처럼 global history 가 없는 환경에 유용한 memory 히스토리를 제공합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 131. What are the <Router> components of React Router v4?
 
@@ -2942,7 +2942,7 @@ React router v4는 아래와 같은 3가지 component 를 제공합니다.
 위의 components 들은 browser, hash, 그리고 memory history 인스턴스를 만듭니다.
 React Router v4 는 Router Object 의 context 를 통해 history 인스턴스의 속성과 메서드를 이용할 수 있게 해줍니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 132. What is the purpose of push() and replace() methods of history?
 
@@ -2955,7 +2955,7 @@ history 인스턴스에는 navigation 을 위한 두 가지 메서드가 있습�
 
 방문한 위치의 history 를 배열로 생각한다면, push() 는 배열에 새 위치를 추가하는 것이고 replace() 는 현재의 위치를 새 위치로 변경하는 것입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 133. How do you programmatically navigate using React Router v4?
 
@@ -3029,7 +3029,7 @@ Button.contextTypes = {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 134. How to get query parameters in React Router v4?
 
@@ -3053,7 +3053,7 @@ const foo = params.get("name");
 
 IE11에는 polyfill을 사용해야합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 135. Why you get "Router may have only one child element" warning?
 
@@ -3078,7 +3078,7 @@ import { Switch, Router, Route } from "react-router";
 </Router>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 136. How to pass params to history.push method in React Router v4?
 
@@ -3096,7 +3096,7 @@ this.props.history.push({
 
 `search` 속성은 push() 메서드에 query params 을 전달하는데 사용됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 137. How to implement default or NotFound page?
 
@@ -3113,7 +3113,7 @@ this.props.history.push({
 </Switch>
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 138. How to get history on React Router v4?
 
@@ -3155,7 +3155,7 @@ import history from "./history";
 history.push("/go-here");
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 139. How to perform automatic redirect after login?
 
@@ -3188,7 +3188,7 @@ export default class LoginComponent extends Component {
 [React Intl](https://github.com/yahoo/react-intl) 라이브러리는 문자열, 날짜와 숫자, 다중화 formatting 을 다룰 수 있는 component 와 api 를 제공합니다.
 React Intl 는 components 와 API 를 통해 React 에 바인딩을 제공하는 FormatJS 의 일부분입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 141. What are the main features of React Intl?
 
@@ -3201,7 +3201,7 @@ React Intl 는 components 와 API 를 통해 React 에 바인딩을 제공하는
 - 브라우저와 노드에서 실행됩니다.
 - 표준을 기반으로 구축되었습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 142. What are the two ways of formatting in React Intl?
 
@@ -3227,7 +3227,7 @@ const messages = defineMessages({
 formatMessage(messages.accountMessage);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 143. How to use <FormattedMessage> as placeholder using React Intl?
 
@@ -3253,7 +3253,7 @@ MyComponent.propTypes = {
 export default injectIntl(MyComponent);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 144. How to access current locale with React Intl?
 
@@ -3275,7 +3275,7 @@ MyComponent.propTypes = {
 export default injectIntl(MyComponent);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 145. How to format date using React Intl?
 
@@ -3304,7 +3304,7 @@ MyComponent.propTypes = {
 export default injectIntl(MyComponent);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ## React Testing
 
@@ -3347,7 +3347,7 @@ expect(result.props.children).toEqual([
 ]);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 147. What is TestRenderer package in React?
 
@@ -3373,7 +3373,7 @@ console.log(testRenderer.toJSON());
 // }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 148. What is the purpose of ReactTestUtils package?
 
@@ -3381,7 +3381,7 @@ console.log(testRenderer.toJSON());
 
 ReactTestUtils 는 with-addons 에서 제공되며 유닛 테스트를 위해 시뮬레이션된 DOM 에 대한 작업을 수행할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 149. What is Jest?
 
@@ -3390,7 +3390,7 @@ ReactTestUtils 는 with-addons 에서 제공되며 유닛 테스트를 위해 �
 Jest 는 Facebook 에서 만든 Jasmine 기반의 Javascript 단위 테스트 프레임워크이며 자동화 된 모의 생성 및 jsdom 환경을 제공합니다.
 종종 component 를 테스트하기위해 사용됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 150. What are the advantages of Jest over Jasmine?
 
@@ -3404,7 +3404,7 @@ Jasmine 과 비교하였을때 몇가지 장점이 있습니다.
 - command line 에서 테스트를 실핼할 수 있도록 가짜 DOM 구현 (jsdom 을 통해) 테스트를 실행합니다.
 - 병렬 프로세스에서 테스트가 실행되어 빨리 완료됩니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 151. Give a simple example of Jest test case
 
@@ -3460,7 +3460,7 @@ dispatcher, stores 그리고 views 컴포넌트 사이의 작업흐름은 input 
 
 ![flux](./public/flux.png)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 153. What is Redux?
 
@@ -3470,7 +3470,7 @@ Redux 는 Flux 설계 패턴을 기반으로한 Javascript App 을 위한 예측
 Redux 는 React 또는 다른 view 라이브러리들과 함께 사용될 수 있습니다.
 그것은 작고 (2KB 정도) 종속성이 없습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 154. What are the core principles of Redux?
 
@@ -3487,7 +3487,7 @@ Redux 는 세가지의 기본원리를 따릅니다.
 3. 순수함수로 만들어진다: 상태 트리가 액션에 의해 어떻게 변환될지를 reducers 에 작성해야합니다.
    Reducers 는 이전의 상태와 매개변수를 받는 순수함수이고 다음 상태를 반환해줍니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 155. What are the downsides of Redux compared to Flux?
 
@@ -3501,7 +3501,7 @@ Redux 는 세가지의 기본원리를 따릅니다.
 - 신중하게 패키지를 선택해야합니다: Flux 는 실행취소/다시실행, 지속성 또는 폼에 대한 문제를 해결하려 하지 않지만, Redux 는 미들웨어
   및 Store 개선 등 확장된 포인트들을 가지고 풍부한 생태계를 만들어 냈습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 156. What is the difference between mapStateToProps() and mapDispatchToProps()?
 
@@ -3529,7 +3529,7 @@ const mapDispatchToProps = dispatch => {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 157. Can I dispatch an action in reducer?
 
@@ -3550,7 +3550,7 @@ store = createStore(myReducer);
 export default store;
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 159. What are the drawbacks of MVW pattern?
 
@@ -3561,7 +3561,7 @@ export default store;
 - 협업 applications 에서는 많은 데이터의 변화가 일어납니다 (ex. Google docs)
 - 많은 코드를 추가하지않고 실행을 취소할 수 있는 방법이 없습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 160. Are there any similarities between Redux and RxJS?
 
@@ -3574,7 +3574,7 @@ RxJS 는 반응형 프로그래밍 라이브러리입니다. 일반적으로 Jav
 Redux 의 store 는 반응형이기 때문에 반응형 패러다임을 사용합니다. store 는 action 을 관찰하여 스스로 변화합니다.
 RxJS 또한 반응형 패러다임을 사용하지만 아키텍쳐는 아니므로 Observables 라는 빌딩 블록을 사용하여 패턴을 제공합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 161. How to dispatch an action on load?
 
@@ -3606,7 +3606,7 @@ const mapDispatchToProps = { fetchData };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 162. How to use connect() from React Redux?
 
@@ -3634,7 +3634,7 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(App);
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 163. How to reset state in Redux?
 
@@ -3680,7 +3680,7 @@ const rootReducer = (state, action) => {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 164. Whats the purpose of at symbol in the Redux connect decorator?
 
@@ -3738,7 +3738,7 @@ export default class MyApp extends React.Component {
 위의 예제는 decorator 의 사용여부를 제외하고는 비슷합니다. decorator 는 아직 자바스크립트 runtime 에 구현되지 않았습니다.
 여전히 실험적인 주제이므로 변화될 수 있습니다. decorators 를 지원하기 위해 babel 을 사용할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 165. What is the difference between React context and React Redux?
 
@@ -3748,7 +3748,7 @@ application 에서 직접적으로 Context 를 사용할 수 있으며 깊게 �
 Redux 는 훨씬 강력하며 Context API 가 지원하지 않는 많은 기능들을 제공해줍니다.
 React Redux 는 내부적으로 Context 를 사용하지만 public API 에 공개하지 않았습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 166. Why are Redux state functions called reducers?
 
@@ -3759,7 +3759,7 @@ Redux reducer 가 호출 될 때 마다 상태와 액션이 파라미터로 전�
 상태는 action 에 따라 축소되거나 누적되어 다음 상태를 반환합니다.
 최종 상태를 얻기 위한 action을 실행함에 있어 action 단위와 store 의 초기 상태 값을 줄일 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 167. How to make AJAX request in Redux?
 
@@ -3789,7 +3789,7 @@ function setAccount(data) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 168. Should I keep all component's state in Redux store?
 
@@ -3797,7 +3797,7 @@ function setAccount(data) {
 
 Redux Store 에서는 Data 를 저장하고 component 내부에서는 UI 에 관련된 상태들을 저장합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 169. What is the proper way to access Redux store?
 
@@ -3838,7 +3838,7 @@ class MyComponent {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 170. What is the difference between component and container in React Redux?
 
@@ -3848,7 +3848,7 @@ Component 는 application 의 보여지는 부분을 묘사하는 class 또는 f
 Container 는 Redux store 와 연결된 component 를 부르는 비공식적인 용어입니다.  
 Container 는 Redux 의 state update 와 action 을 구독하며, DOM element 를 렌더링하지 않습니다. 하위 표현 component 들에게 rendering 을 위임합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 171. What is the purpose of the constants in Redux?
 
@@ -3903,7 +3903,7 @@ export default (state = [], action) => {
 };
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 172. What are the different ways to write mapDispatchToProps()?
 
@@ -3929,7 +3929,7 @@ const mapDispatchToProps = { action };
 
 세 번째 옵션은 첫 번째 옵션의 축약형 입니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 173. What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?
 
@@ -3955,7 +3955,7 @@ import ConnectedComponent from "./containers/ConnectedComponent";
 
 이 객체를 사용하여 무엇을 반환할지 결정할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 174. How to structure Redux top level directories?
 
@@ -3971,7 +3971,7 @@ import ConnectedComponent from "./containers/ConnectedComponent";
 
 이 폴더 구조는 중소의 app 에 적합합니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 175. What is redux-saga?
 
@@ -3992,7 +3992,7 @@ $ npm install --save redux-saga
 sage는 application 안에 분리된 쓰레드이고, side effects 를 위한 단독적인 책임을 가지고있습니다.
 `redux-saga` 는 redux 미들웨어입니다. 메인 application 에서 Redux actions 과 함께 쓰레드를 시작, 중지, 취소 할 수 있으며 전체의 Redux application 상태에 접근할 수 있고 Redux actions 도 전달할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 177. What are the differences between call() and put() in redux-saga?
 
@@ -4016,7 +4016,7 @@ function* fetchUserSaga(action) {
 }
 ```
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 178. What is Redux Thunk?
 
@@ -4025,7 +4025,7 @@ function* fetchUserSaga(action) {
 Redux Thunk 는 action 대신 함수를 반환하는 action 생성자를 작성 할 수 있는 미들웨어입니다.
 Thunk 는 action dispatch 를 지연 시키거나, 특정한 조건이 성립되는 경우에만 dispatch 하도록 할 수 있습니다. 내부 함수는 매개변수로 store method dispatch 그리고 getState 를 받습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 179. What are the differences between redux-saga and redux-thunk?
 
@@ -4035,7 +4035,7 @@ Redux Thunk 와 Redux Saga 는 모두 side effect 를 방지합니다.
 대부분의 시나리오에서 Thunk 는 Promise 를 사용하여 처리하고 Saga 는 Generators 를 사용합니다. Promise 는 많은 개발자들에게 친숙하여 Thunk 는 다루기 쉽고, Sagas / Generator 는 매우 강력하지만 러닝커브가 있습니다.
 두 미들웨어 모두 공존 할 수 있습니다. Thunk 로 시작하여도 만약 Saga 가 필요하다면 도입 할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 180. What is Redux DevTools?
 
@@ -4044,7 +4044,7 @@ Redux Thunk 와 Redux Saga 는 모두 side effect 를 방지합니다.
 Redux DevTools 은 Redux 를 위한 hot reload 기능을 가진 시간 여행 환경의 실시간 편집이 가능한 툴입니다. 액션을 다시 재현하거나 UI 를 사용자정의에 맞게 만들 수 있습니다.
 Redux DevTools 을 프로젝트에 설치하여 사용하고 싶지 않다면 Chrome 또는 Firefox 용 Extension 사용을 고려 할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 181. What are the features of Redux DevTools?
 
@@ -4056,7 +4056,7 @@ Redux DevTools 을 프로젝트에 설치하여 사용하고 싶지 않다면 Ch
 4. action 에서 어떤 일이 일어났는지, 오류가 발생하였는지 알 수 있습니다.
 5. `persistState()` store enhancer 을 사용하면 page reload 에서 debug session 을 지속할 수 있습니다.
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
 ### 182. What are Redux selectors and why to use them?
 
@@ -4074,5 +4074,5 @@ const getUserData = state => state.user.data;
 
 #### (Redux Form 은 무엇인가요?)
    
-[목차로 ✨](#목차)
+[상단으로 ✨](#목차)
    
