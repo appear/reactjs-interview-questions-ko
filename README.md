@@ -122,80 +122,83 @@
 | 107 | [How to focus an input element on page load?](#107-how-to-focus-an-input-element-on-page-load)                                                                                                 |
 | 108 | [What are the possible ways of updating objects in state?](#108-what-are-the-possible-ways-of-updating-objects-in-state)                                                                       |
 | 109 | [Why function is preferred over object for setState?](#109-why-function-is-preferred-over-object-for-setstate)                                                                                 |
-| 110 | [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser)                                                         |
-| 111 | [What are the approaches to include polyfills in your create-react-app?](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app)                                           |
-| 112 | [How to use https instead of http in create-react-app?](#how-to-use-https-instead-of-http-in-create-react-app)                                                                             |
-| 113 | [How to avoid using relative path imports in create-react-app?](#how-to-avoid-using-relative-path-imports-in-create-react-app)                                                             |
-| 114 | [How to add Google Analytics for react-router?](#how-to-add-google-analytics-for-react-router)                                                                                             |
-| 115 | [How to update a component every second?](#how-to-update-a-component-every-second)                                                                                                         |
-| 116 | [How do you apply vendor prefixes to inline styles in React?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react)                                                                 |
-| 117 | [How to import and export components using react and ES6?](#how-to-import-and-export-components-using-react-and-es6)                                                                       |
-| 118 | [Why React component names must begin with a capital letter?](#why-react-component-names-must-begin-with-a-capital-letter)                                                                 |
-| 119 | [Why is a component constructor called only once?](#why-is-a-component-constructor-called-only-once)                                                                                       |
-| 120 | [How to define constants in React?](#how-to-define-constants-in-react)                                                                                                                     |
-| 121 | [How to programmatically trigger click event in React?](#how-to-programmatically-trigger-click-event-in-react)                                                                             |
-| 122 | [Is it possible to use async/await in plain React?](#is-it-possible-to-use-asyncawait-in-plain-react)                                                                                      |
-| 123 | [What are the common folder structures for React?](#what-are-the-common-folder-structures-for-react)                                                                                       |
-| 124 | [What are the popular packages for animation?](#what-are-the-popular-packages-for-animation)                                                                                               |
-| 125 | [What is the benefit of styles modules?](#what-is-the-benefit-of-styles-modules)                                                                                                           |
-| 126 | [What are the popular React-specific linters?](#what-are-the-popular-react-specific-linters)                                                                                               |
-| 127 | [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call)   |
-| 128 | [What are render props?](#what-are-render-props)                                                                                                                                           |
+| 110 | [How can we find the version of React at runtime in the browser?](#110-how-can-we-find-the-version-of-react-at-runtime-in-the-browser)                                                         |
+| 111 | [What are the approaches to include polyfills in your create-react-app?](#111-what-are-the-approaches-to-include-polyfills-in-your-create-react-app)                                           |
+| 112 | [How to use https instead of http in create-react-app?](#112-how-to-use-https-instead-of-http-in-create-react-app)                                                                             |
+| 113 | [How to avoid using relative path imports in create-react-app?](#113-how-to-avoid-using-relative-path-imports-in-create-react-app)                                                             |
+| 114 | [How to add Google Analytics for react-router?](#114-how-to-add-google-analytics-for-react-router)                                                                                             |
+| 115 | [How to update a component every second?](#115-how-to-update-a-component-every-second)                                                                                                         |
+| 116 | [How do you apply vendor prefixes to inline styles in React?](#116-how-do-you-apply-vendor-prefixes-to-inline-styles-in-react)                                                                 |
+| 117 | [How to import and export components using react and ES6?](#117-how-to-import-and-export-components-using-react-and-es6)                                                                       |
+| 118 | [Why React component names must begin with a capital letter?](#118-why-react-component-names-must-begin-with-a-capital-letter)                                                                 |
+| 119 | [Why is a component constructor called only once?](#119-why-is-a-component-constructor-called-only-once)                                                                                       |
+| 120 | [How to define constants in React?](#120-how-to-define-constants-in-react)                                                                                                                     |
+| 121 | [How to programmatically trigger click event in React?](#121-how-to-programmatically-trigger-click-event-in-react)                                                                             |
+| 122 | [Is it possible to use async/await in plain React?](#122-is-it-possible-to-use-asyncawait-in-plain-react)                                                                                      |
+| 123 | [What are the common folder structures for React?](#123-what-are-the-common-folder-structures-for-react)                                                                                       |
+| 124 | [What are the popular packages for animation?](#124-what-are-the-popular-packages-for-animation)                                                                                               |
+| 125 | [What is the benefit of styles modules?](#125-what-is-the-benefit-of-styles-modules)                                                                                                           |
+| 126 | [What are the popular React-specific linters?](#126-what-are-the-popular-react-specific-linters)                                                                                               |
+| 127 | [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#127-how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call)   |
+| 128 | [What are render props?](#128-what-are-render-props)                                                                                                                                           |
 |     | **React Router**                                                                                                                                                                           |
-| 129 | [What is React Router?](#what-is-react-router)                                                                                                                                             |
-| 130 | [How React Router is different from history library?](#how-react-router-is-different-from-history-library)                                                                                 |
-| 131 | [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4)                                                                                |
-| 132 | [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history)                                                                 |
-| 133 | [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4)                                                                 |
-| 134 | [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4)                                                                                          |
-| 135 | [Why you get "Router may have only one child element" warning?](#why-you-get-router-may-have-only-one-child-element-warning)                                                               |
-| 136 | [How to pass params to history.push method in React Router v4?](#how-to-pass-params-to-historypush-method-in-react-router-v4)                                                              |
-| 137 | [How to implement default or NotFound page?](#how-to-implement-default-or-notfound-page)                                                                                                   |
-| 138 | [How to get history on React Router v4?](#how-to-get-history-on-react-router-v4)                                                                                                           |
-| 139 | [How to perform automatic redirect after login?](#how-to-perform-automatic-redirect-after-login)                                                                                           |
+| 129 | [What is React Router?](#129-what-is-react-router)                                                                                                                                             |
+| 130 | [How React Router is different from history library?](#130-how-react-router-is-different-from-history-library)                                                                                 |
+| 131 | [What are the \<Router> components of React Router v4?](#131-what-are-the-router-components-of-react-router-v4)                                                                                |
+| 132 | [What is the purpose of push and replace methods of history?](#132-what-is-the-purpose-of-push-and-replace-methods-of-history)                                                                 |
+| 133 | [How do you programmatically navigate using React router v4?](#133-how-do-you-programmatically-navigate-using-react-router-v4)                                                                 |
+| 134 | [How to get query parameters in React Router v4](#134-how-to-get-query-parameters-in-react-router-v4)                                                                                          |
+| 135 | [Why you get "Router may have only one child element" warning?](#135-why-you-get-router-may-have-only-one-child-element-warning)                                                               |
+| 136 | [How to pass params to history.push method in React Router v4?](#136-how-to-pass-params-to-historypush-method-in-react-router-v4)                                                              |
+| 137 | [How to implement default or NotFound page?](#137-how-to-implement-default-or-notfound-page)                                                                                                   |
+| 138 | [How to get history on React Router v4?](#138-how-to-get-history-on-react-router-v4)                                                                                                           |
+| 139 | [How to perform automatic redirect after login?](#139-how-to-perform-automatic-redirect-after-login)                                                                                           |
 |     | **React Internationalization**                                                                                                                                                             |
-| 140 | [What is React-Intl?](#what-is-react-intl)                                                                                                                                                 |
-| 141 | [What are the main features of React Intl?](#what-are-the-main-features-of-react-intl)                                                                                                     |
-| 142 | [What are the two ways of formatting in React Intl?](#what-are-the-two-ways-of-formatting-in-react-intl)                                                                                   |
-| 143 | [How to use FormattedMessage as placeholder using React Intl?](#how-to-use-formattedmessage-as-placeholder-using-react-intl)                                                               |
-| 144 | [How to access current locale with React Intl](#how-to-access-current-locale-with-react-intl)                                                                                              |
-| 145 | [How to format date using React Intl?](#how-to-format-date-using-react-intl)                                                                                                               |
+| 140 | [What is React-Intl?](#140-what-is-react-intl)                                                                                                                                                 |
+| 141 | [What are the main features of React Intl?](#141-what-are-the-main-features-of-react-intl)                                                                                                     |
+| 142 | [What are the two ways of formatting in React Intl?](#142-what-are-the-two-ways-of-formatting-in-react-intl)                                                                                   |
+| 143 | [How to use FormattedMessage as placeholder using React Intl?](#143-how-to-use-formattedmessage-as-placeholder-using-react-intl)                                                               |
+| 144 | [How to access current locale with React Intl](#144-how-to-access-current-locale-with-react-intl)                                                                                              |
+| 145 | [How to format date using React Intl?](#145-how-to-format-date-using-react-intl)                                                                                                               |
 |     | **React Testing**                                                                                                                                                                          |
-| 146 | [What is Shallow Renderer in React testing?](#what-is-shallow-renderer-in-react-testing)                                                                                                   |
-| 147 | [What is TestRenderer package in React?](#what-is-testrenderer-package-in-react)                                                                                                           |
-| 148 | [What is the purpose of ReactTestUtils package?](#what-is-the-purpose-of-reacttestutils-package)                                                                                           |
-| 149 | [What is Jest?](#what-is-jest)                                                                                                                                                             |
-| 150 | [What are the advantages of Jest over Jasmine?](#what-are-the-advantages-of-jest-over-jasmine)                                                                                             |
-| 151 | [Give a simple example of Jest test case](#give-a-simple-example-of-jest-test-case)                                                                                                        |
+| 146 | [What is Shallow Renderer in React testing?](#146-what-is-shallow-renderer-in-react-testing)                                                                                                   |
+| 147 | [What is TestRenderer package in React?](#147-what-is-testrenderer-package-in-react)                                                                                                           |
+| 148 | [What is the purpose of ReactTestUtils package?](#148-what-is-the-purpose-of-reacttestutils-package)                                                                                           |
+| 149 | [What is Jest?](#149-what-is-jest)                                                                                                                                                             |
+| 150 | [What are the advantages of Jest over Jasmine?](#150-what-are-the-advantages-of-jest-over-jasmine)                                                                                             |
+| 151 | [Give a simple example of Jest test case](#151-give-a-simple-example-of-jest-test-case)                                                                                                        |
 |     | **React Redux**                                                                                                                                                                            |
-| 152 | [What is Flux?](#what-is-flux)                                                                                                                                                             |
-| 153 | [What is Redux?](#what-is-redux)                                                                                                                                                           |
-| 154 | [What are the core principles of Redux?](#what-are-the-core-principles-of-redux)                                                                                                           |
-| 155 | [What are the downsides of Redux compared to Flux?](#what-are-the-downsides-of-redux-compared-to-flux)                                                                                     |
-| 156 | [What is the difference between mapStateToProps() and mapDispatchToProps()?](#what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops)                                       |
-| 157 | [Can I dispatch an action in reducer?](#can-i-dispatch-an-action-in-reducer)                                                                                                               |
-| 158 | [How to access Redux store outside a component?](#how-to-access-redux-store-outside-a-component)                                                                                           |
-| 159 | [What are the drawbacks of MVW pattern](#what-are-the-drawbacks-of-mvw-pattern)                                                                                                            |
-| 160 | [Are there any similarities between Redux and RxJS?](#are-there-any-similarities-between-redux-and-rxjs)                                                                                   |
-| 161 | [How to dispatch an action on load?](#how-to-dispatch-an-action-on-load)                                                                                                                   |
-| 162 | [How to use connect from React Redux?](#how-to-use-connect-from-react-redux)                                                                                                               |
-| 163 | [How to reset state in Redux?](#how-to-reset-state-in-redux)                                                                                                                               |
-| 164 | [Whats the purpose of at symbol in the redux connect decorator?](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator)                                                           |
-| 165 | [What is the difference between React context and React Redux?](#what-is-the-difference-between-react-context-and-react-redux)                                                             |
-| 166 | [Why are Redux state functions called reducers?](#why-are-redux-state-functions-called-reducers)                                                                                           |
-| 167 | [How to make AJAX request in Redux?](#how-to-make-ajax-request-in-redux)                                                                                                                   |
-| 168 | [Should I keep all component's state in Redux store?](#should-i-keep-all-components-state-in-redux-store)                                                                                  |
-| 169 | [What is the proper way to access Redux store?](#what-is-the-proper-way-to-access-redux-store)                                                                                             |
-| 170 | [What is the difference between component and container in React Redux?](#what-is-the-difference-between-component-and-container-in-react-redux)                                           |
-| 171 | [What is the purpose of the constants in Redux? ](#what-is-the-purpose-of-the-constants-in-redux)                                                                                          |
-| 172 | [What are the different ways to write mapDispatchToProps()?](#what-are-the-different-ways-to-write-mapdispatchtoprops)                                                                     |
-| 173 | [What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops)           |
-| 174 | [How to structure Redux top level directories?](#how-to-structure-redux-top-level-directories)                                                                                             |
-| 175 | [What is redux-saga?](#what-is-redux-saga)                                                                                                                                                 |
-| 176 | [What is the mental model of redux-saga?](#what-is-the-mental-model-of-redux-saga)                                                                                                         |
-| 177 | [What are the differences between call and put in redux-saga](#what-are-the-differences-between-call-and-put-in-redux-saga)                                                                |
-| 178 | [What is Redux Thunk?](#what-is-redux-thunk)                                                                                                                                               |
-| 179 | [What are the differences between redux-saga and redux-thunk](#what-are-the-differences-between-redux-saga-and-redux-thunk)                                                                |
+| 152 | [What is Flux?](#152-what-is-flux)                                                                                                                                                             |
+| 153 | [What is Redux?](#153-what-is-redux)                                                                                                                                                           |
+| 154 | [What are the core principles of Redux?](#154-what-are-the-core-principles-of-redux)                                                                                                           |
+| 155 | [What are the downsides of Redux compared to Flux?](#155-what-are-the-downsides-of-redux-compared-to-flux)                                                                                     |
+| 156 | [What is the difference between mapStateToProps() and mapDispatchToProps()?](#156-what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops)                                       |
+| 157 | [Can I dispatch an action in reducer?](#157-can-i-dispatch-an-action-in-reducer)                                                                                                               |
+| 158 | [How to access Redux store outside a component?](#158-how-to-access-redux-store-outside-a-component)                                                                                           |
+| 159 | [What are the drawbacks of MVW pattern](#159-what-are-the-drawbacks-of-mvw-pattern)                                                                                                            |
+| 160 | [Are there any similarities between Redux and RxJS?](#160-are-there-any-similarities-between-redux-and-rxjs)                                                                                   |
+| 161 | [How to dispatch an action on load?](#161-how-to-dispatch-an-action-on-load)                                                                                                                   |
+| 162 | [How to use connect from React Redux?](#162-how-to-use-connect-from-react-redux)                                                                                                               |
+| 163 | [How to reset state in Redux?](#163-how-to-reset-state-in-redux)                                                                                                                               |
+| 164 | [Whats the purpose of at symbol in the redux connect decorator?](#164-whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator)                                                           |
+| 165 | [What is the difference between React context and React Redux?](#165-what-is-the-difference-between-react-context-and-react-redux)                                                             |
+| 166 | [Why are Redux state functions called reducers?](#166-why-are-redux-state-functions-called-reducers)                                                                                           |
+| 167 | [How to make AJAX request in Redux?](#167-how-to-make-ajax-request-in-redux)                                                                                                                   |
+| 168 | [Should I keep all component's state in Redux store?](#168-should-i-keep-all-components-state-in-redux-store)                                                                                  |
+| 169 | [What is the proper way to access Redux store?](#169-what-is-the-proper-way-to-access-redux-store)                                                                                             |
+| 170 | [What is the difference between component and container in React Redux?](#170-what-is-the-difference-between-component-and-container-in-react-redux)                                           |
+| 171 | [What is the purpose of the constants in Redux? ](#171-what-is-the-purpose-of-the-constants-in-redux)                                                                                          |
+| 172 | [What are the different ways to write mapDispatchToProps()?](#172-what-are-the-different-ways-to-write-mapdispatchtoprops)                                                                     |
+| 173 | [What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?](#173-what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops)           |
+| 174 | [How to structure Redux top level directories?](#174-how-to-structure-redux-top-level-directories)                                                                                             |
+| 175 | [What is redux-saga?](#175-what-is-redux-saga)                                                                                                                                                 |
+| 176 | [What is the mental model of redux-saga?](#176-what-is-the-mental-model-of-redux-saga)                                                                                                         |
+| 177 | [What are the differences between call and put in redux-saga](#177-what-are-the-differences-between-call-and-put-in-redux-saga)                                                                |
+| 178 | [What is Redux Thunk?](#178-what-is-redux-thunk)                                                                                                                                               |
+| 179 | [What are the differences between redux-saga and redux-thunk](#179-what-are-the-differences-between-redux-saga-and-redux-thunk)                                                                |
+| 180 | [What is Redux DevTools?](#180-what-is-redux-devtool)                                                                |
+| 181 | [What are the features of Redux DevTools?](#181-what-are-the-features-of-redux-devtools)                                                                |
+| 182 | [What are Redux selectors and why to use them?](#182-what-are-redux-selectors-and-why-to-use-thme)                                                                |
 
 ## Core ReactJS
 
@@ -3704,7 +3707,7 @@ Redux DevTools 을 프로젝트에 설치하여 사용하고 싶지 않다면 Ch
 
 #### (Redux selectors 는 무엇이고 왜 사용해야하나요?)
 
-Selectors 는 Redux state 를 인수로받고 데이터를 반환하여 component 로 전달하는 함수입니다.
+Selectors 는 Redux state 를 argument 로 받고 component 에 전달할 데이터를 반환하는 함수입니다.
 
 예를 들어, 사용자의 세부정보를 얻으려면:
 
