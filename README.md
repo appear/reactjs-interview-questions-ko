@@ -1,12 +1,13 @@
 # reactjs-interview-questions-ko ✨
-   
+
+<br />
+
 > 원작자인 [sudheerj](https://github.com/sudheerj) 의 동의를 구하고 진행하는 번역본 입니다.
 영어 원본은 [링크](https://github.com/sudheerj/reactjs-interview-questions#what-is-reactjs) 에서 확인 할 수 있습니다.
 
 도움을 주시고싶은 분들은 fork 후 pull request 부탁드립니다 🎉
-이 글이 도움이 되셨다면 ⭐ 를 눌러주세요
- 
-<br />
+이 글이 도움이 되셨다면 ⭐ 를 눌러주세요 
+
 <br />
 
 ## 목차
