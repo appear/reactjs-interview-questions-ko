@@ -200,13 +200,13 @@
 
 ## Core ReactJS
 
-### What is ReactJS? 
-#### (React란 무엇인가요?)
+### 1. What is ReactJS? (React란 무엇인가요?)
+
 [React](https://reactjs.org/docs/hello-world.html)는 SPA (Single Page Application) 즉, 단일 페이지 응용 프로그램에서 사용자 인터페이스를 구성는데 사용되는 오픈 소스 프론트엔드 JS 라이브러리 입니다.   
 웹 및 모바일 앱의 Layer 를 다루는데 사용됩니다. 리액트는 페이스북의 소프트웨어 엔지니어 [Jordan Walke](https://twitter.com/jordwalke) 에 의해 만들어졌습니다.  
 리액트는 2011 년 페이스북 뉴스피드에 발표되었고, 2012년 인스타그램에 처음 구축되었습니다.
 
-### What are the major features of ReactJS? 
+### 2. What are the major features of ReactJS? 
 #### (React의 특징은 무엇이 있을까요?)
 React 의 주요 특징은 아래와 같습니다.
 - RealDOM 을 조작하는데 많은 비용이 들어간다는 점을 고려하여 리액트는 RealDOM 대신 [VirtualDOM](https://www.youtube.com/watch?v=BYbgopx44vo)을 사용합니다.
@@ -214,7 +214,7 @@ React 의 주요 특징은 아래와 같습니다.
 - 단방향 데이터 흐름 또는 데이터 바인딩을 따릅니다.
 - UI 구성 요소를 재사용할 수 있도록 개발할 수 있습니다.
 
-### What is JSX? 
+### 3. What is JSX? 
 #### (JSX란 무엇인가요?)
 [JSX](https://reactjs.org/docs/introducing-jsx.html) 는 JS XML (ECMAScript로 XML 유사 구문 확장) 의 구문 표기법입니다. JSX 는 JS XML의 약자입니다.  
 [HTML](https://ko.wikipedia.org/wiki/HTML)과 같은 문법과 함께 JS를 표현할 수 있습니다. 
@@ -230,7 +230,7 @@ render() {
 }
 ```
 
-### What is the difference between Element and Component? 
+### 4. What is the difference between Element and Component? 
 #### (element와 component의 차이점은 무엇인가요?)
 [element](https://ko.wikipedia.org/wiki/HTML_%EC%9A%94%EC%86%8C)는 DOM 노드 또는 다른 [component](https://reactjs.org/docs/react-component.html)들과 관련하여 화면에 표시 할 내용을 표현하는 일반 객체입니다. elements는 다른 elements 들을 포함할 수 있습니다.
 [React element](https://reactjs.org/docs/rendering-elements.html)를 만드는 비용은 저렴합니다. element 는 생성되면 변형되지 않습니다. 리액트 element 의 표현은 아래와 같습니다.
