@@ -203,6 +203,14 @@
 | 180 | [What is Redux DevTools?](#180-what-is-redux-devtool)                                                                |
 | 181 | [What are the features of Redux DevTools?](#181-what-are-the-features-of-redux-devtools)                                                                |
 | 182 | [What are Redux selectors and why to use them?](#182-what-are-redux-selectors-and-why-to-use-thme)                                                                |
+| 183 | [What is Redux Form?](#183-What is Redux Form?)    |
+| 184 | [What are the main features of Redux Form?](#184-What are the main features of Redux Form?)    |
+| 185 | [How to add multiple middlewares to Redux?](#185-How to add multiple middlewares to Redux?)    |
+| 186 | [How to set initial state in Redux?](#186-How to set initial state in Redux?)    |
+| 187 | [How Relay is different from Redux?](#187-How Relay is different from Redux?)    |
+| 188 | [What is an action in Redux?](#188-What is an action in Redux?)    |
+|     | **React Native**                                                                                                                                                         |
+
 
 ## Core ReactJS
 
@@ -4075,5 +4083,84 @@ const getUserData = state => state.user.data;
 
 #### (Redux Form 은 무엇인가요?)
    
-[상단으로 ✨](#목차)
+Redux Form 은 React와 Redux 와 함께 동작하여 React Form 에서 Redux 의 모든 스토어의 상태 값을 사용 할 수 있도록 합니다.    
+Redux Form 은 HTML5 의 input 과 함께 사용 할 수 있습니다. 또한 Material UI, React Widgets, React Bootstrap 과 같은 일반적인 UI 프레임워크에서도 잘 동작합니다.
    
+[상단으로 ✨](#목차)
+
+### 184. What are the main features of Redux Form?
+
+#### (Redux Form 의 주요한 기능들은 무엇인가요?)
+
+Redux Form 의 주요 기능은 다음과 같습니다
+
+- Field 의 값들은 Redux Store 를 통해 지속됩니다 
+- 검증(동기/비동기) 와 제출
+- Field 값에 대한 formatting, parsing, normalization(정규화)
+
+[상단으로 ✨](#목차)
+
+### 185. How to add multiple middlewares to Redux?
+
+#### (어떻게 Redux 에 여러개의 미들웨어를 추가하나요?)
+
+`applyMiddleware()` 를 사용 합니다.
+`applyMiddleware()` 의 인자 값으로 `redux-thunk` 와 `logger` 를 전달하여 미들웨어를 추가 할 수 있습니다.
+
+```js
+import { createStore, applyMiddleware } from 'redux'
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
+```
+
+[상단으로 ✨](#목차)
+
+### 186. How to set initial state in Redux?
+
+#### (어떻게 Redux 의 초기값을 세팅 할 수 있나요?)
+
+`createStore` 의 두 번째 인자로 초기값을 전달 할 수 있습니다.
+
+```js
+const rootReducer = combineReducers({
+  todos: todos,
+  visibilityFilter: visibilityFilter
+})
+
+const initialState = {
+  todos: [{ id: 123, name: 'example', completed: false }]
+}
+
+const store = createStore(
+  rootReducer,
+  initialState
+)
+```
+
+[상단으로 ✨](#목차)
+
+### 187. How Relay is different from Redux?
+
+#### (Relay 와 Redux 는 어떻게 다른가요?)
+
+둘 다 단일 저장소를 사용한다는점이 유사합니다. 주요 차이점은 릴레이는 서버로부터 생성된 상태만 관리하며, 모든 상태에 대한 접근은 GraphQL 쿼리(읽기 위한)와 Mutations(상태 변경을 위한) 을 통해 사용이 가능합니다. 릴레이는 변경된 데이터만 가져와 데이터를 캐시하고 최적화합니다.
+
+[상단으로 ✨](#목차)
+
+
+### 188. What is an action in Redux?
+
+#### (Redux Action 이 무엇인가요?)
+
+Action 은 Application 에서 Store 로 보내는 Javascript Object 또는 전송되는 데이터에 대한 정보입니다. Action 은 Store 를 위한 정보입니다. 
+수행해야되는 작업을 나타내는 type 속성을 반드시 가져야합니다. 
+
+예를 들어, 새로운 작업 항목을 추가하는 action 을 보겠습니다.
+
+```js
+{
+  type: ADD_TODO,
+  text: 'Add todo item'
+}
+```
+
+[상단으로 ✨](#목차)
